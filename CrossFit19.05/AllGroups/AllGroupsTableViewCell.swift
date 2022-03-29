@@ -21,6 +21,7 @@ class AllGroupsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
     public func refresh(_ model: GroupsName) {
         allGroupsNameLabel.text = model.nameGroups
     }

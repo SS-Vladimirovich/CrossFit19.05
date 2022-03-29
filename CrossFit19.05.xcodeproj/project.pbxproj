@@ -79,8 +79,6 @@
 			children = (
 				880D220827F09D710059E6B9 /* GroupsTableViewController.swift */,
 				880D220F27F09F370059E6B9 /* GroupsTableViewCell.swift */,
-				880D221427F0D12D0059E6B9 /* AllGroupsTableViewController.swift */,
-				88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -112,8 +110,9 @@
 				882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */,
 				882EE94D27E9ECC70024A451 /* Info.plist */,
 				882EE94527E9ECC50024A451 /* CrossFit19_05.xcdatamodeld */,
-				88B7E39427F1A5530029141C /* FotoFriends */,
 				880D220E27F09E2A0059E6B9 /* Groups */,
+				88FE6B7D27F31D1700361545 /* AllGroups */,
+				88B7E39427F1A5530029141C /* FotoFriends */,
 				880D220D27F09E100059E6B9 /* Friends */,
 				880D220127F089A30059E6B9 /* Model */,
 			);
@@ -127,6 +126,15 @@
 				88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */,
 			);
 			name = FotoFriends;
+			sourceTree = "<group>";
+		};
+		88FE6B7D27F31D1700361545 /* AllGroups */ = {
+			isa = PBXGroup;
+			children = (
+				880D221427F0D12D0059E6B9 /* AllGroupsTableViewController.swift */,
+				88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */,
+			);
+			path = AllGroups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

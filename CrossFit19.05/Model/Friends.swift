@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: - Structure
 
-struct FriendsName {
+struct Friends {
 
-    var fullName: String
+    var name: String
     var imageAvatar: String
+    var photos: [String]
 
 }
 
@@ -20,6 +22,7 @@ struct GroupsName {
 
     var nameGroups: String
     var imageAvatar: String
+
 }
 
 struct FotoFriends {

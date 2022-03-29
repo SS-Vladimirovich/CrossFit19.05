@@ -22,8 +22,7 @@ class FriendsTableViewCell: UITableViewCell {
 
     }
 
-    public func refresh(_ model: FriendsName) {
-        friendsNameLabel.text = model.fullName
+    public func refresh(_ model: Friends) {
+        friendsNameLabel.text = model.name
     }
-
 }

@@ -9,37 +9,46 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
 
-    var itemArray = [FriendsName] ()
+    var friends: [Friends] = [
+        Friends(name: "Andrey Gaydutsky", imageAvatar: "avatarOne", photos: ["fotoOne", "fotoTwo", "fotoTree"]),
+        Friends(name: "Tekunov Stanislav", imageAvatar: "avatarTwo", photos: ["fotoFour", "fotoLegasi", "fotoSix"]),
+        Friends(name: "Sergey Sokolov", imageAvatar: "avatarTree", photos: ["fotoTree", "fotoTwo", "fotoLegasi"])
+
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        itemArray.append(FriendsName(fullName: "Sregey Sokolov", imageAvatar: "avatarOne"))
-        itemArray.append(FriendsName(fullName: "Stanislav Tekunov", imageAvatar: "avatarTwo"))
-        itemArray.append(FriendsName(fullName: "Vladimir Cvetkov", imageAvatar: "avatarTree"))
 
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemArray.count
+        return friends.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as? FriendsTableViewCell {
 
-            let item = itemArray[indexPath.row]
+            let item = friends[indexPath.row]
 
-            cell.friendsNameLabel.text = item.fullName
+            cell.friendsNameLabel.text = item.name
             cell.imageAvatar.image = UIImage(named: item.imageAvatar)
 
             return cell
         }
 
         return UITableViewCell()
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? FriendsTableViewCell,
+              let index = tableView.indexPath(for: cell)?.row,
+              let photosVC = segue.destination as? FotoCollectionViewController else {
+            return
+        }
+
+        let friend = friends[index]
+        photosVC.friendsPhotos = friend.photos
     }
 }
-
