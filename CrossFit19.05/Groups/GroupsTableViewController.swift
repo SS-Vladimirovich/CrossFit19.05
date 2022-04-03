@@ -12,7 +12,7 @@ class GroupsTableViewController: UITableViewController {
     @IBAction func addGroup(segue: UIStoryboardSegue) {
 
          if segue.identifier == "addGroup" {
-            let allGroupsController = segue.source as! AllGroupsTableViewController
+             let allGroupsController = segue.source as! AllGroupsTableViewController
             if let indexPath = allGroupsController.tableView.indexPathForSelectedRow {
                 let group = allGroupsController.allGroups[indexPath.row]
                 myGroups.append(group)
@@ -20,8 +20,6 @@ class GroupsTableViewController: UITableViewController {
             }
         }
     }
-
-    var myGroups = [GroupsName]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

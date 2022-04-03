@@ -19,6 +19,9 @@
 		882EE94727E9ECC50024A451 /* CrossFit19_05.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 882EE94527E9ECC50024A451 /* CrossFit19_05.xcdatamodeld */; };
 		882EE94927E9ECC70024A451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 882EE94827E9ECC70024A451 /* Assets.xcassets */; };
 		882EE94C27E9ECC70024A451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */; };
+		88646D8427F880AE0037D73A /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88646D8327F880AE0037D73A /* LikeControl.swift */; };
+		8883DE4127F7164E00A41492 /* dataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4027F7164E00A41492 /* dataSource.swift */; };
+		8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4427F71E2B00A41492 /* DrawView.swift */; };
 		88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */; };
 		88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */; };
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
@@ -40,6 +43,9 @@
 		882EE94827E9ECC70024A451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		882EE94B27E9ECC70024A451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		882EE94D27E9ECC70024A451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88646D8327F880AE0037D73A /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		8883DE4027F7164E00A41492 /* dataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSource.swift; sourceTree = "<group>"; };
+		8883DE4427F71E2B00A41492 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawView.swift; path = Model/DrawView.swift; sourceTree = "<group>"; };
 		88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewCell.swift; sourceTree = "<group>"; };
 		88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewController.swift; sourceTree = "<group>"; };
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				880D220227F089EA0059E6B9 /* Friends.swift */,
+				8883DE4027F7164E00A41492 /* dataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 				88B7E39427F1A5530029141C /* FotoFriends */,
 				880D220D27F09E100059E6B9 /* Friends */,
 				880D220127F089A30059E6B9 /* Model */,
+				88646D8327F880AE0037D73A /* LikeControl.swift */,
+				8883DE4427F71E2B00A41492 /* DrawView.swift */,
 			);
 			path = CrossFit19.05;
 			sourceTree = "<group>";
@@ -210,14 +219,17 @@
 			files = (
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
 				88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */,
+				88646D8427F880AE0037D73A /* LikeControl.swift in Sources */,
 				880D220927F09D710059E6B9 /* GroupsTableViewController.swift in Sources */,
 				880D220327F089EA0059E6B9 /* Friends.swift in Sources */,
 				880D221527F0D12D0059E6B9 /* AllGroupsTableViewController.swift in Sources */,
 				882EE94727E9ECC50024A451 /* CrossFit19_05.xcdatamodeld in Sources */,
+				8883DE4127F7164E00A41492 /* dataSource.swift in Sources */,
 				880D221027F09F370059E6B9 /* GroupsTableViewCell.swift in Sources */,
 				882EE93D27E9ECC50024A451 /* AppDelegate.swift in Sources */,
 				880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */,
 				88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */,
+				8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */,
 				88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */,
 				882EE93F27E9ECC50024A451 /* SceneDelegate.swift in Sources */,
 				88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */,
