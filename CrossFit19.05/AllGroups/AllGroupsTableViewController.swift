@@ -9,6 +9,11 @@ import UIKit
 
 class AllGroupsTableViewController: UITableViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+
     var allGroups: [GroupsName] = [
         GroupsName(nameGroups: "CrossFit-19.05", imageAvatar: "avatarGroup1"),
         GroupsName(nameGroups: "NewAlhogol", imageAvatar: "avatarGroup2"),
@@ -17,18 +22,12 @@ class AllGroupsTableViewController: UITableViewController {
         GroupsName(nameGroups: "OldAlhogol", imageAvatar: "avatarGroup5"),
         GroupsName(nameGroups: "Любители Coca-Cola", imageAvatar: "avatarGroup6")
     ]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allGroups.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupCell", for: indexPath) as? AllGroupsTableViewCell {

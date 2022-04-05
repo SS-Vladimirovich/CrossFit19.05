@@ -9,27 +9,18 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
 
-    var friends: [Friends] = [
-        Friends(name: "Andrey Gaydutsky", imageAvatar: "avatarOne", photos: ["fotoOne", "fotoTwo", "fotoTree"]),
-        Friends(name: "Tekunov Stanislav", imageAvatar: "avatarTwo", photos: ["fotoFour", "fotoLegasi", "fotoSix"]),
-        Friends(name: "Sergey Sokolov", imageAvatar: "avatarTree", photos: ["fotoTree", "fotoTwo", "fotoLegasi"])
-
-    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as? FriendsTableViewCell {
-
             let item = friends[indexPath.row]
 
             cell.friendsNameLabel.text = item.name
@@ -37,7 +28,6 @@ class FriendsTableViewController: UITableViewController {
 
             return cell
         }
-
         return UITableViewCell()
     }
 
