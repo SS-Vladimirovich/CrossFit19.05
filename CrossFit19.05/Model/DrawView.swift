@@ -16,10 +16,6 @@ class DrawView: UIView {
         layer.borderWidth = 2
         layer.borderColor = UIColor.black.cgColor
         layer.cornerRadius = 22
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 8
-        layer.shadowOffset = CGSize(width: 5, height: 5)
 
     }
 }
@@ -28,7 +24,7 @@ class ShadowView: UIView {
 
     @IBInspectable var shadowRadius: CGFloat = 8
     @IBInspectable var shadowOpacity: Float = 0.5
-    @IBInspectable var shadowColor: UIColor = .black
+    @IBInspectable var shadowColor = UIColor.black.cgColor
     @IBInspectable var shadowOffset: CGSize = CGSize(width: 5, height: 5)
 
     override func awakeFromNib() {
@@ -37,10 +33,10 @@ class ShadowView: UIView {
         layer.borderWidth = 2
         layer.borderColor = UIColor.clear.cgColor
         layer.cornerRadius = 22
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 8
-        layer.shadowOffset = CGSize(width: 5, height: 5)
+        layer.shadowColor = shadowColor
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = shadowOffset
 
     }
 }
