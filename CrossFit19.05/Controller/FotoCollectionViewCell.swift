@@ -12,7 +12,7 @@ class FotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeControl: LikeControl!
     @IBOutlet weak var fotoFriends: UIImageView!
 
-    var likePhoto: (() -> Void)?
+    var likePhoto: ((Bool) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +23,6 @@ class FotoCollectionViewCell: UICollectionViewCell {
     @objc
     func likeControlTapped() {
         likeControl.isSelected = !likeControl.isSelected
-        likePhoto?()
+        likePhoto?(likeControl.isSelected)
     }
 }

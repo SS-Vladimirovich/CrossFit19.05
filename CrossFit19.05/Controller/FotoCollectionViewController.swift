@@ -18,9 +18,14 @@ class FotoCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fotoCell", for: indexPath) as? FotoCollectionViewCell
-        let photo = friends[friendsIndex.row].photos[indexPath.row]
+        let photo = friends[friendsIndex].photos[indexPath.row]
         
-        cell?.imageView.image = UIImage(named: photo.imageFoto)
+        cell?.fotoFriends.image = UIImage(named: photo.imageFoto)
+        cell?.likeControl.isSelected = photo.isLiked
+
+        cell?.likePhoto = { isSelected in
+            friends[self.friendsIndex].photos[indexPath.row].isLiked = isSelected
+        }
 
         return cell ?? UICollectionViewCell()
     }

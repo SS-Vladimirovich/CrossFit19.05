@@ -60,7 +60,7 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath) as? FriendsTableViewCell {
-            let groupFriend = groupFriends[indexPath.row]
+            let groupFriend = groupFriends[indexPath.section]
             let group = groupFriend.friends[indexPath.row]
 
             cell.friendsNameLabel.text = group.name
@@ -74,14 +74,22 @@ class FriendsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
             let cell = sender as? FriendsTableViewCell,
-            let index = tableView.indexPath(for: cell)?.row,
+            let index = tableView.indexPath(for: cell),
             let photosViewController = segue.destination as? FotoCollectionViewController
         else {
             return
         }
+        let groupFriend = groupFriends[index.section]
+        let group = groupFriend.friends[index.row]
 
-        let friend = groupFriend[section]
-        photosViewController.title = friend.name
-        photosViewController.friendsIndex = indexPath.row
+        var indexFren = -1
+
+        for (index, frend) in friends.enumerated() where frend.name == group.name {
+            indexFren = index
+        }
+
+        photosViewController.title = group.name
+        photosViewController.friendsIndex = indexFren
+
     }
 }

@@ -74,3 +74,10 @@ var allGroups: [GroupsName] = [
     GroupsName(nameGroups: "OldAlhogol", imageAvatar: "avatarGroup5"),
     GroupsName(nameGroups: "Любители Coca-Cola", imageAvatar: "avatarGroup6")
 ]
+
+var newsGroups: [NewsGroup] = [
+NewsGroup(nameGroups: "CrossFit-19.05",
+          imageAvatar: "avatarGroup1",
+          creatNews: "12.04.2022",
+          textNews: "Пикачу́ (яп. ピカチュウ Пикатю:, англ. Pikachu) — существо из серии игр, манги и аниме «Покемон», принадлежащей компаниям Nintendo и Game Freak.",
+          fotoNews: "fotoLegasi")]
