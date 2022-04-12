@@ -13,7 +13,7 @@ struct Friends {
 
     var name: String
     var imageAvatar: String
-    var photos: [String]
+    var photos: [FotoFriends]
 
 }
 
@@ -27,5 +27,15 @@ struct GroupsName {
 struct FotoFriends {
 
     var imageFoto: String
-    
+    var isLiked: Bool
+}
+
+struct NewsGroup {
+
+    var nameGroups: String
+    var imageAvatar: String
+    var creatNews: String
+    var textNews: String
+    var fotoNews: String
+
 }

@@ -41,5 +41,4 @@ class AllGroupsTableViewController: UITableViewController {
 
         return UITableViewCell()
     }
-
 }

@@ -16,7 +16,8 @@ class LikeControl: UIControl {
 
     override var isSelected: Bool {
         didSet {
-            imageView?.image = isSelected ? UIImage(named: "LikeFull") : UIImage(named: "LikeClear")
+            guard oldValue != isSelected else { return }
+            imageView?.image = isSelected ? UIImage(named: "likeFull") : UIImage(named: "LikeClear")
 
             if isSelected {
                 likeCounter += 1

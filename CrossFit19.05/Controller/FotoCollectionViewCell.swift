@@ -9,17 +9,20 @@ import UIKit
 
 class FotoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var likeCintrol: LikeControl!
+    @IBOutlet weak var likeControl: LikeControl!
     @IBOutlet weak var fotoFriends: UIImageView!
+
+    var likePhoto: ((Bool) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        likeCintrol.addTarget(self, action: #selector(likeControlTapped), for: .touchUpInside)
+        likeControl.addTarget(self, action: #selector(likeControlTapped), for: .touchUpInside)
     }
 
     @objc
     func likeControlTapped() {
-        likeCintrol.isSelected = !likeCintrol.isSelected
+        likeControl.isSelected = !likeControl.isSelected
+        likePhoto?(likeControl.isSelected)
     }
 }

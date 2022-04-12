@@ -21,8 +21,4 @@ class FriendsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-
-    public func refresh(_ model: Friends) {
-        friendsNameLabel.text = model.name
-    }
 }
