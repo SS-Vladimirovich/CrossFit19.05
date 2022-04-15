@@ -9,8 +9,35 @@ import UIKit
 
 class DrawView: UIView {
 
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+            recognizer.numberOfTapsRequired = 1
+            recognizer.numberOfTouchesRequired = 1
+            return recognizer
+            }()
+
+    @objc
+    func onTap() {
+
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           options: []) {
+                self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            } completion: { _ in
+                UIView.animate(withDuration: 1,
+                               delay: 0,
+                               usingSpringWithDamping: 0.3,
+                               initialSpringVelocity: 0,
+                               options: []) {
+                    self.transform = CGAffineTransform.identity
+                }
+            }
+        }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        addGestureRecognizer(tapGestureRecognizer)
 
         layer.masksToBounds = true
         layer.borderWidth = 2
@@ -40,3 +67,4 @@ class ShadowView: UIView {
 
     }
 }
+
