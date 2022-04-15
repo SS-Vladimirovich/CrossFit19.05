@@ -22,7 +22,7 @@ class FotoCollectionViewCell: UICollectionViewCell {
 
     @objc
     func likeControlTapped() {
-        likeControl.isSelected = !likeControl.isSelected
-        likePhoto?(likeControl.isSelected)
+        likeControl.isFlipped = !likeControl.isFlipped
+        likePhoto?(likeControl.isFlipped)
     }
 }

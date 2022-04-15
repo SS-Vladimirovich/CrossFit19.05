@@ -9,23 +9,28 @@ import UIKit
 
 class LikeControl: UIControl {
 
-    @IBOutlet weak var imageView: UIImageView?
+    @IBOutlet weak var imageViewClear: UIImageView?
+    @IBOutlet weak var imageViewNoClear: UIImageView?
     @IBOutlet weak var counterLabel: UILabel?
 
     var likeCounter: Int = 0
+    var isFlipped = false
 
-    override var isSelected: Bool {
-        didSet {
-            guard oldValue != isSelected else { return }
-            imageView?.image = isSelected ? UIImage(named: "likeFull") : UIImage(named: "LikeClear")
+    @IBAction func likeBatton(_ sender: Any) {
 
-            if isSelected {
-                likeCounter += 1
-            } else {
-                likeCounter -= 1
-            }
+        isFlipped = !isFlipped
+        let fromView = isFlipped ? imageViewClear : imageViewNoClear
+        let toView = isFlipped ? imageViewNoClear : imageViewClear
 
-            counterLabel?.text = "\(likeCounter)"
+        if fromView == imageViewNoClear {
+            likeCounter -= 1
+        } else {
+            likeCounter += 1
         }
+
+        counterLabel?.text = "\(likeCounter)"
+
+        UIView.transition(from: fromView!, to: toView!, duration: 1, options: [.curveEaseOut, .transitionFlipFromLeft, .showHideTransitionViews])
+
     }
 }

@@ -29,6 +29,7 @@
 		88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */; };
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
 		88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */; };
+		88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F70DD42809AB0400638330 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewController.swift; sourceTree = "<group>"; };
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		88F70DD42809AB0400638330 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				8883DE4027F7164E00A41492 /* dataSource.swift */,
 				88646D8327F880AE0037D73A /* LikeControl.swift */,
 				88B62BC027F9E0A8005EE67B /* GradientView.swift */,
+				88F70DD42809AB0400638330 /* LoginViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */,
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
 				889A5E1C27FEFFC200AA95F0 /* NewsWeekTableViewController.swift in Sources */,
 				88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */,
