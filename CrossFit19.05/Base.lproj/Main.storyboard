@@ -486,12 +486,49 @@ Premium Class</string>
                             <outlet property="delegate" destination="H2h-2Y-AAc" id="Zkh-cb-JHc"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="rwG-EL-84r"/>
+                    <navigationItem key="navigationItem" id="rwG-EL-84r">
+                        <barButtonItem key="rightBarButtonItem" title="Slaid-Show" id="eVu-rI-LHr">
+                            <connections>
+                                <segue destination="pWp-vm-hHC" kind="show" id="dxu-Fc-cbd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQb-GR-fum" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0H7-SS-BZf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5936.8000000000002" y="-713.05418719211821"/>
+        </scene>
+        <!--Slide Show View Controller-->
+        <scene sceneID="MXj-CV-GGK">
+            <objects>
+                <viewController id="pWp-vm-hHC" customClass="SlideShowViewController" customModule="CrossFit19_05" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z95-bA-7XW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSp-8Y-Ei2">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YC3-78-vIP">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kq2-eU-TND"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ptW-Fp-pgh"/>
+                    <connections>
+                        <outlet property="firstView" destination="YC3-78-vIP" id="BZc-HX-s4a"/>
+                        <outlet property="lastView" destination="pSp-8Y-Ei2" id="Rcu-ny-5cQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLO-4R-6qz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6732" y="-713.05418719211821"/>
         </scene>
         <!--All Groups Table View Controller-->
         <scene sceneID="Mn9-FP-Cql">
@@ -604,8 +641,9 @@ Premium Class</string>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LikeClear" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-ab-82h">
-                                            <rect key="frame" x="16" y="447" width="30" height="30"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NUg-ab-82h">
+                                            <rect key="frame" x="16" y="449" width="30" height="27"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="caF-h1-fd3"/>
                                                 <constraint firstAttribute="height" constant="30" id="nVe-Fj-05y"/>
@@ -844,11 +882,11 @@ Premium Class</string>
         </scene>
     </scenes>
     <resources>
-        <image name="LikeClear" width="32" height="32"/>
         <image name="Logo" width="35" height="18"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="ellipsis.bubble" catalog="system" width="128" height="110"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
