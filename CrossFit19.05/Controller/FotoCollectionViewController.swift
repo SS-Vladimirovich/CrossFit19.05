@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FotoCollectionViewController: UICollectionViewController {
+class FotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var friendsIndex: Int = 0
 
@@ -28,5 +28,11 @@ class FotoCollectionViewController: UICollectionViewController {
         }
 
         return cell ?? UICollectionViewCell()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let slideVC = segue.destination as? SlideShowViewController {
+            slideVC.photos = friends[friendsIndex].photos
+        }
     }
 }
