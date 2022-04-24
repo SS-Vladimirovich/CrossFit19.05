@@ -62,7 +62,7 @@ Premium Class</string>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bet-mM-gl9"/>
-                                                            <segue destination="drD-ui-lcm" kind="presentation" modalPresentationStyle="fullScreen" id="jqP-g6-nAP"/>
+                                                            <segue destination="drD-ui-lcm" kind="presentation" customClass="PresentSegue" customModule="CrossFit19_05" customModuleProvider="target" modalPresentationStyle="fullScreen" id="jqP-g6-nAP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -818,7 +818,7 @@ Premium Class</string>
         <!--Group-->
         <scene sceneID="uQm-8s-DQb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hi-RA-lLl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0hi-RA-lLl" customClass="CustomNavigationController" customModule="CrossFit19_05" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Group" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="Nc5-MP-81h">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
