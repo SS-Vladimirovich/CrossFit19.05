@@ -7,9 +7,9 @@
 
 import UIKit
 
-class Session {
+struct Session {
 
-static let instance = Session()
+    static var instance = Session()
 
     private init(){}
 
