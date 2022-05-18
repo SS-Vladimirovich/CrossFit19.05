@@ -62,7 +62,6 @@ Premium Class</string>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bet-mM-gl9"/>
-                                                            <segue destination="drD-ui-lcm" kind="presentation" customClass="PresentSegue" customModule="CrossFit19_05" customModuleProvider="target" modalPresentationStyle="fullScreen" id="jqP-g6-nAP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -118,6 +117,7 @@ Premium Class</string>
         <!--Web View Controller-->
         <scene sceneID="gLH-Sc-FkD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngd-Hs-QFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Psj-Pq-mOY" customClass="WKWebViewController" customModule="CrossFit19_05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PHe-1s-WuP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -141,11 +141,12 @@ Premium Class</string>
                             <constraint firstItem="c4c-vm-wi1" firstAttribute="trailing" secondItem="xFw-em-gvg" secondAttribute="trailing" id="yUs-2q-nGe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9TE-tk-g8i"/>
                     <connections>
                         <outlet property="webView" destination="xFw-em-gvg" id="4av-1x-Erp"/>
+                        <segue destination="drD-ui-lcm" kind="show" identifier="loginViewIndenti" id="Sza-2s-Edt"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ngd-Hs-QFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5982" y="-4625"/>
         </scene>
@@ -154,11 +155,11 @@ Premium Class</string>
             <objects>
                 <viewController id="drD-ui-lcm" customClass="LoginViewController" customModule="CrossFit19_05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" semanticContentAttribute="spatial" id="xWH-hs-ltq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cJt-Qw-hhQ">
-                                <rect key="frame" x="112.66666666666669" y="391" width="150" height="30"/>
+                                <rect key="frame" x="112.66666666666669" y="364" width="150" height="30"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHE-pE-WAA" customClass="LodingViewOne" customModule="CrossFit19_05" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -198,7 +199,7 @@ Premium Class</string>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuQ-Kd-zcA">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>

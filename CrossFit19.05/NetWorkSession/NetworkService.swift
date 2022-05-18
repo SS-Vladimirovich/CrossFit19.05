@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 
-class NetWorkService {
+class NetWorkServiceGet {
 
     //Получение списка друзей
     static func getFriends(comletion: @escaping(Any?)-> ()) {

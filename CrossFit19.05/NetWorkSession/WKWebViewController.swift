@@ -8,10 +8,10 @@
 import UIKit
 import WebKit
 
-class WKWebViewController: UIViewController {
+class WKWebViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
     @IBOutlet weak var webView: WKWebView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,18 +35,19 @@ class WKWebViewController: UIViewController {
 }
 
 extension WKWebViewController: WKNavigationDelegate {
+
     func webView(
         _ webView: WKWebView,
         decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-        decisionHandler(.allow)
+
 
         guard
             let url = navigationResponse.response.url,
             url.path == "/blank.html",
             let fragment = url.fragment
-        else { return }
+        else { return decisionHandler(.allow) }
 
         let params = fragment
             .components(separatedBy: "&")
@@ -62,10 +63,15 @@ extension WKWebViewController: WKNavigationDelegate {
         guard
             let token = params["access_token"],
             let userId = Int(params["user_id"] ?? "")
-        else { return }
+        else { return decisionHandler(.allow) }
+
 
         Session.instance.token = token
         Session.instance.userId = userId
+        
+        performSegue(
+            withIdentifier: "loginViewIndenti",
+            sender: nil)
 
         decisionHandler(.cancel)
     }
@@ -84,6 +90,9 @@ class NetworkService {
 
             let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
 
+            DispatchQueue.main.async {
+                completion(json)
+            }
         }.resume()
     }
 }

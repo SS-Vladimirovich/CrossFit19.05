@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
 
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-
+            
 //MARK: - One
 
         oneCircle.layer.masksToBounds = true
