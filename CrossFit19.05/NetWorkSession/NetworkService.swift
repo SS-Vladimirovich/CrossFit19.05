@@ -28,6 +28,26 @@ class NetWorkServiceGet {
         }
     }
 
+    //Получение групп по поисковому запросу
+    static func getGroupSearch(search: String, completion: @escaping(Any?) -> ()) {
+
+        var urlComponents = URLComponents(string: "https://api.vk.com/method/groups.search")
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "q", value: search),
+            URLQueryItem(name: "v", value: "5.131")
+        ]
+
+        guard let url = urlComponents?.url else { return }
+
+        NetworkService.shared.sendGetRequest(url: url) { json in
+            print(json)
+        }
+    }
+}
+
+struct FotosAll {
+
     //Получение фотографий человека
     static func getAllPhotos(userId: Int, completion: @escaping(Any?) -> ()) {
 
@@ -44,6 +64,9 @@ class NetWorkServiceGet {
             print(json)
         }
     }
+}
+
+struct GroupsAll {
 
     //Получение групп текущего пользователя
     static func getAllgroup(userId: Int, completion: @escaping(Any?) -> ()) {
@@ -62,14 +85,17 @@ class NetWorkServiceGet {
             print(json)
         }
     }
+}
 
-    //Получение групп по поисковому запросу
-    static func getGroupSearch(search: String, completion: @escaping(Any?) -> ()) {
+struct UsersGet {
 
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/groups.search")
+    //Получение групп Users пользователя
+    static func getUsers(userId: Int, completion: @escaping(Any?) -> ()) {
+
+        var urlComponents = URLComponents(string: "https://api.vk.com/method/users.get")
         urlComponents?.queryItems = [
             URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "q", value: search),
+            URLQueryItem(name: "user_id", value: "\(userId)"),
             URLQueryItem(name: "v", value: "5.131")
         ]
 

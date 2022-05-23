@@ -11,6 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UsersGet.getUsers(userId: Session.instance.userId) { json in
+            print("GetUsers \(json)")
+        }
     }
     
     @IBOutlet weak var scrollView: UIScrollView!

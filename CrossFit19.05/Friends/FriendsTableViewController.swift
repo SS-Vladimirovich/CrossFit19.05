@@ -26,10 +26,6 @@ class FriendsTableViewController: UITableViewController {
         NetWorkServiceGet.getFriends { json in
             print("AllFriends \(json)")
         }
-
-        NetWorkServiceGet.getAllPhotos(userId: Session.instance.userId) { json in
-            print("AllPhoto \(json)")
-        }
     }
 
     var groupFriends: [GroupFriends] {
