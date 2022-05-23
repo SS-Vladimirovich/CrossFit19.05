@@ -22,6 +22,10 @@ class FriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetWorkServiceGet.getFriends { json in
+            print("AllFriends \(json)")
+        }
     }
 
     var groupFriends: [GroupFriends] {

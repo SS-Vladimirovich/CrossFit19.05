@@ -9,6 +9,13 @@ import UIKit
 
 class FotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        FotosAll.getAllPhotos(userId: Session.instance.userId) { json in
+            print("AllPhoto \(json)")
+        }
+    }
     var friendsIndex: Int = 0
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
