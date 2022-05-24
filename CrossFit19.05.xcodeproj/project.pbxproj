@@ -22,6 +22,7 @@
 		882EE94C27E9ECC70024A451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */; };
 		883E83222833DF5300938355 /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E83212833DF5300938355 /* NetWorkService.swift */; };
 		88646D8427F880AE0037D73A /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88646D8327F880AE0037D73A /* LikeControl.swift */; };
+		8871B008283CFEFC009D069E /* RealmGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871B007283CFEFC009D069E /* RealmGet.swift */; };
 		8883DE4127F7164E00A41492 /* dataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4027F7164E00A41492 /* dataSource.swift */; };
 		8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4427F71E2B00A41492 /* DrawView.swift */; };
 		888BD5E028326A4C00C10F6A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */; };
@@ -56,6 +57,7 @@
 		882EE94D27E9ECC70024A451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		883E83212833DF5300938355 /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
 		88646D8327F880AE0037D73A /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		8871B007283CFEFC009D069E /* RealmGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGet.swift; sourceTree = "<group>"; };
 		8883DE4027F7164E00A41492 /* dataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSource.swift; sourceTree = "<group>"; };
 		8883DE4427F71E2B00A41492 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */,
 				882EE94D27E9ECC70024A451 /* Info.plist */,
 				882EE94527E9ECC50024A451 /* CrossFit19_05.xcdatamodeld */,
+				8871B006283CFED0009D069E /* RealmGet */,
 				889A5E1827FEFF0A00AA95F0 /* NewsWeek */,
 				88C2CA9027FE19220089C5E4 /* Groups */,
 				88C2CA8F27FE19010089C5E4 /* Friends */,
@@ -158,6 +161,14 @@
 				880D220127F089A30059E6B9 /* Model */,
 			);
 			path = CrossFit19.05;
+			sourceTree = "<group>";
+		};
+		8871B006283CFED0009D069E /* RealmGet */ = {
+			isa = PBXGroup;
+			children = (
+				8871B007283CFEFC009D069E /* RealmGet.swift */,
+			);
+			path = RealmGet;
 			sourceTree = "<group>";
 		};
 		888BD5E128338F6200C10F6A /* NetWorkSession */ = {
@@ -332,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */,
+				8871B008283CFEFC009D069E /* RealmGet.swift in Sources */,
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
 				889A5E1C27FEFFC200AA95F0 /* NewsWeekTableViewController.swift in Sources */,
 				88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */,
