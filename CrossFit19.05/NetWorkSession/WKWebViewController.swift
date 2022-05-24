@@ -77,23 +77,42 @@ extension WKWebViewController: WKNavigationDelegate {
     }
 }
 
+//MARK: - NetworkService
+
 class NetworkService {
 
     private init() {}
 
     static let shared = NetworkService()
 
-    func sendGetRequest(url: URL, completion: @escaping(Any?) -> ()) {
+    func sendGetRequest(url: URL, completion: @escaping(Data) -> ()) {
 
         URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else { return }
-
-            let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-
-            DispatchQueue.main.async {
-                completion(json)
-            }
+            completion(data)
         }.resume()
     }
 }
 
+//MARK: - Response
+
+struct ArrayResponse<T: Decodable>: Decodable {
+
+    enum CodingKeys: CodingKey {
+
+        case response
+
+        enum ResponseKeys: CodingKey {
+            case items
+        }
+    }
+
+    let response: [T]
+
+    init(from decoder: Decoder) throws {
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let groupsContainer = try container.nestedContainer(keyedBy: CodingKeys.ResponseKeys.self, forKey: .response)
+        response = try groupsContainer.decode([T].self, forKey: .items)
+    }
+}

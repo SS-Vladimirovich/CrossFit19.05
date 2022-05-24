@@ -12,10 +12,11 @@ class FotoCollectionViewController: UICollectionViewController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        FotosAll.getAllPhotos(userId: Session.instance.userId) { json in
-            print("AllPhoto \(json)")
+        NetWorkServiceGet.getAllPhotos(userId: Session.instance.userId) { json in
+            print("GetAllPhotos \(json)")
         }
     }
+    
     var friendsIndex: Int = 0
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
