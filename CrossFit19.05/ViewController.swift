@@ -11,6 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NetWorkServiceGet.getUsers(userId: Session.instance.userId) { json in
+            print("GetUsers \(json)")
+        }
     }
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -45,4 +49,5 @@ class ViewController: UIViewController {
     @objc func hideKeyboard() { self.scrollView?.endEditing(true)
     }
 }
+
 

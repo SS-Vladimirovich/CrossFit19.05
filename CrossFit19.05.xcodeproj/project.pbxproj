@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8734CB339FA9303F509DD0D5 /* Pods_CrossFit19_05.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6963C8FD0461A4266B5302F /* Pods_CrossFit19_05.framework */; };
 		880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D21FE27F086790059E6B9 /* FriendsTableViewCell.swift */; };
 		880D220327F089EA0059E6B9 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D220227F089EA0059E6B9 /* Friends.swift */; };
 		880D220927F09D710059E6B9 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880D220827F09D710059E6B9 /* GroupsTableViewController.swift */; };
@@ -19,11 +20,14 @@
 		882EE94727E9ECC50024A451 /* CrossFit19_05.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 882EE94527E9ECC50024A451 /* CrossFit19_05.xcdatamodeld */; };
 		882EE94927E9ECC70024A451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 882EE94827E9ECC70024A451 /* Assets.xcassets */; };
 		882EE94C27E9ECC70024A451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */; };
+		883E83222833DF5300938355 /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E83212833DF5300938355 /* NetWorkService.swift */; };
 		88646D8427F880AE0037D73A /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88646D8327F880AE0037D73A /* LikeControl.swift */; };
 		8883DE4127F7164E00A41492 /* dataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4027F7164E00A41492 /* dataSource.swift */; };
 		8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4427F71E2B00A41492 /* DrawView.swift */; };
+		888BD5E028326A4C00C10F6A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */; };
 		889A5E1A27FEFF9900AA95F0 /* NewsWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A5E1927FEFF9900AA95F0 /* NewsWeekTableViewCell.swift */; };
 		889A5E1C27FEFFC200AA95F0 /* NewsWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889A5E1B27FEFFC200AA95F0 /* NewsWeekTableViewController.swift */; };
+		88A2718E28168D200063CE78 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A2718D28168D200063CE78 /* Session.swift */; };
 		88B0600E280F1C7F001B7A93 /* SlideShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0600D280F1C7F001B7A93 /* SlideShowViewController.swift */; };
 		88B5329928114EE5002B1065 /* PresentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5329828114EE5002B1065 /* PresentSegue.swift */; };
 		88B5329D2812AE36002B1065 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5329C2812AE36002B1065 /* CustomNavigationController.swift */; };
@@ -50,11 +54,14 @@
 		882EE94827E9ECC70024A451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		882EE94B27E9ECC70024A451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		882EE94D27E9ECC70024A451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		883E83212833DF5300938355 /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
 		88646D8327F880AE0037D73A /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		8883DE4027F7164E00A41492 /* dataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSource.swift; sourceTree = "<group>"; };
 		8883DE4427F71E2B00A41492 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		889A5E1927FEFF9900AA95F0 /* NewsWeekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWeekTableViewCell.swift; sourceTree = "<group>"; };
 		889A5E1B27FEFFC200AA95F0 /* NewsWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWeekTableViewController.swift; sourceTree = "<group>"; };
+		88A2718D28168D200063CE78 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		88B0600D280F1C7F001B7A93 /* SlideShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideShowViewController.swift; sourceTree = "<group>"; };
 		88B5329828114EE5002B1065 /* PresentSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentSegue.swift; sourceTree = "<group>"; };
 		88B5329C2812AE36002B1065 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -64,6 +71,9 @@
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		88F70DD42809AB0400638330 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A8B02A269C14D9E560B3CE09 /* Pods-CrossFit19.05.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossFit19.05.release.xcconfig"; path = "Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05.release.xcconfig"; sourceTree = "<group>"; };
+		D5CD19831BBC2D33AFF16D47 /* Pods-CrossFit19.05.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossFit19.05.debug.xcconfig"; path = "Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05.debug.xcconfig"; sourceTree = "<group>"; };
+		D6963C8FD0461A4266B5302F /* Pods_CrossFit19_05.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossFit19_05.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8734CB339FA9303F509DD0D5 /* Pods_CrossFit19_05.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BC7BA46F1B086E8F516EAB6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5CD19831BBC2D33AFF16D47 /* Pods-CrossFit19.05.debug.xcconfig */,
+				A8B02A269C14D9E560B3CE09 /* Pods-CrossFit19.05.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		41481E7D838D41EA1592E13B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6963C8FD0461A4266B5302F /* Pods_CrossFit19_05.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		880D220127F089A30059E6B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +125,8 @@
 			children = (
 				882EE93B27E9ECC50024A451 /* CrossFit19.05 */,
 				882EE93A27E9ECC50024A451 /* Products */,
+				1BC7BA46F1B086E8F516EAB6 /* Pods */,
+				41481E7D838D41EA1592E13B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,9 +154,20 @@
 				88C2CA8F27FE19010089C5E4 /* Friends */,
 				88C2CA8E27FE18D90089C5E4 /* AllGroups */,
 				88C2CA8C27FC54FA0089C5E4 /* Controller */,
+				888BD5E128338F6200C10F6A /* NetWorkSession */,
 				880D220127F089A30059E6B9 /* Model */,
 			);
 			path = CrossFit19.05;
+			sourceTree = "<group>";
+		};
+		888BD5E128338F6200C10F6A /* NetWorkSession */ = {
+			isa = PBXGroup;
+			children = (
+				888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */,
+				88A2718D28168D200063CE78 /* Session.swift */,
+				883E83212833DF5300938355 /* NetWorkService.swift */,
+			);
+			path = NetWorkSession;
 			sourceTree = "<group>";
 		};
 		889A5E1827FEFF0A00AA95F0 /* NewsWeek */ = {
@@ -182,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 882EE95027E9ECC70024A451 /* Build configuration list for PBXNativeTarget "CrossFit19.05" */;
 			buildPhases = (
+				134628671CC02A94183253B9 /* [CP] Check Pods Manifest.lock */,
 				882EE93527E9ECC50024A451 /* Sources */,
 				882EE93627E9ECC50024A451 /* Frameworks */,
 				882EE93727E9ECC50024A451 /* Resources */,
+				D1640D91E8E64D5A90CFE5A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +284,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		134628671CC02A94183253B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossFit19.05-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1640D91E8E64D5A90CFE5A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		882EE93527E9ECC50024A451 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,12 +345,15 @@
 				88B62BC127F9E0A8005EE67B /* GradientView.swift in Sources */,
 				880D221527F0D12D0059E6B9 /* AllGroupsTableViewController.swift in Sources */,
 				882EE94727E9ECC50024A451 /* CrossFit19_05.xcdatamodeld in Sources */,
+				883E83222833DF5300938355 /* NetWorkService.swift in Sources */,
 				8883DE4127F7164E00A41492 /* dataSource.swift in Sources */,
+				888BD5E028326A4C00C10F6A /* WKWebViewController.swift in Sources */,
 				880D221027F09F370059E6B9 /* GroupsTableViewCell.swift in Sources */,
 				882EE93D27E9ECC50024A451 /* AppDelegate.swift in Sources */,
 				880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */,
 				88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */,
 				8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */,
+				88A2718E28168D200063CE78 /* Session.swift in Sources */,
 				88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */,
 				882EE93F27E9ECC50024A451 /* SceneDelegate.swift in Sources */,
 				88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */,
@@ -412,6 +500,7 @@
 		};
 		882EE95127E9ECC70024A451 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5CD19831BBC2D33AFF16D47 /* Pods-CrossFit19.05.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,6 +529,7 @@
 		};
 		882EE95227E9ECC70024A451 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8B02A269C14D9E560B3CE09 /* Pods-CrossFit19.05.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

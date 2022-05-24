@@ -11,7 +11,10 @@ class AllGroupsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NetWorkServiceGet.getAllgroup(userId: Session.instance.userId) { json in
+            print("AllGroup \(json)")
+        }
     }
 
     var allGroups: [GroupsName] = [
