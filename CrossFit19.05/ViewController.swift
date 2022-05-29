@@ -9,11 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var userArray: [GetUsers] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetWorkServiceGet.getUsers(userId: Session.instance.userId) { json in
-            print("GetUsers \(json)")
+        GetDB.shared.loadUser(userId: Session.instance.userId) { users in
+            DispatchQueue.main.async {
+                self.userArray = users
+            }
         }
     }
     

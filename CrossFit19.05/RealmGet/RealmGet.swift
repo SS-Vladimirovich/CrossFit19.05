@@ -34,4 +34,6 @@ class RealmUser: Object {
     @Persisted var id: Int
     @Persisted var name: String
     @Persisted var photo50: String
+    @Persisted var firstName: String
+    @Persisted var lastName: String
 }

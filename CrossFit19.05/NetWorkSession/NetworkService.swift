@@ -7,6 +7,7 @@
 
 import Foundation
 import WebKit
+import SwiftUI
 
 class NetWorkServiceGet {
 
@@ -136,10 +137,14 @@ struct GetUsers: Decodable {
     let id: Int
     let name: String
     let photo50: String
+    let firstName: String
+    let lastName: String
 
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case photo50 = "photo_50"
+        case firstName
+        case lastName
     }
 }
