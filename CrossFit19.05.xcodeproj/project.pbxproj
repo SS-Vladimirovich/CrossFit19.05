@@ -36,7 +36,9 @@
 		88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */; };
 		88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */; };
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
+		88BFC1E1284107B600C609B1 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BFC1E0284107B600C609B1 /* RealmDB.swift */; };
 		88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */; };
+		88E4A7B22843876D00DBA754 /* GetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E4A7B12843876D00DBA754 /* GetDB.swift */; };
 		88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F70DD42809AB0400638330 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +73,9 @@
 		88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewCell.swift; sourceTree = "<group>"; };
 		88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewController.swift; sourceTree = "<group>"; };
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		88BFC1E0284107B600C609B1 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		88E4A7B12843876D00DBA754 /* GetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDB.swift; sourceTree = "<group>"; };
 		88F70DD42809AB0400638330 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8B02A269C14D9E560B3CE09 /* Pods-CrossFit19.05.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossFit19.05.release.xcconfig"; path = "Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05.release.xcconfig"; sourceTree = "<group>"; };
 		D5CD19831BBC2D33AFF16D47 /* Pods-CrossFit19.05.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossFit19.05.debug.xcconfig"; path = "Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				8871B007283CFEFC009D069E /* RealmGet.swift */,
+				88BFC1E0284107B600C609B1 /* RealmDB.swift */,
+				88E4A7B12843876D00DBA754 /* GetDB.swift */,
 			);
 			path = RealmGet;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */,
 				8871B008283CFEFC009D069E /* RealmGet.swift in Sources */,
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
+				88BFC1E1284107B600C609B1 /* RealmDB.swift in Sources */,
 				889A5E1C27FEFFC200AA95F0 /* NewsWeekTableViewController.swift in Sources */,
 				88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */,
 				889A5E1A27FEFF9900AA95F0 /* NewsWeekTableViewCell.swift in Sources */,
@@ -364,6 +371,7 @@
 				882EE93D27E9ECC50024A451 /* AppDelegate.swift in Sources */,
 				880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */,
 				88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */,
+				88E4A7B22843876D00DBA754 /* GetDB.swift in Sources */,
 				8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */,
 				88A2718E28168D200063CE78 /* Session.swift in Sources */,
 				88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */,

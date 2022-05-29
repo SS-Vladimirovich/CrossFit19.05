@@ -9,12 +9,18 @@ import UIKit
 
 class FotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    var photoArray: [PhotoModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetWorkServiceGet.getAllPhotos(userId: Session.instance.userId) { json in
-            print("GetAllPhotos \(json)")
+        GetDB.shared.loadPhotos(userId: Session.instance.userId) { photos in
+            DispatchQueue.main.async {
+                self.photoArray = photos
+                self.collectionView.reloadData()
+            }
         }
+ 
     }
     
     var friendsIndex: Int = 0

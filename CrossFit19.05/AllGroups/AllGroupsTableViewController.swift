@@ -9,11 +9,16 @@ import UIKit
 
 class AllGroupsTableViewController: UITableViewController {
 
+    var groupsArray: [GroupModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetWorkServiceGet.getAllgroup(userId: Session.instance.userId) { json in
-            print("AllGroup \(json)")
+        GetDB.shared.loadGroups(userId: Session.instance.userId) { groups in
+            DispatchQueue.main.async {
+                self.groupsArray = groups
+                self.tableView.reloadData()
+            }
         }
     }
 
