@@ -8,6 +8,7 @@
 import Foundation
 import WebKit
 import SwiftUI
+import RealmSwift
 
 class NetWorkServiceGet {
 
@@ -71,6 +72,7 @@ class NetWorkServiceGet {
         }
     }
 }
+
 // MARK: - Struct
 
 //PhotoModel
