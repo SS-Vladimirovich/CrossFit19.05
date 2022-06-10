@@ -41,6 +41,12 @@ class AllGroupsTableViewController: UITableViewController {
                     let deletionIndexSet = deletions.reduce(into: IndexSet(), { $0.insert($1) })
                     let insertIndexSet = insertions.reduce(into: IndexSet(), { $0.insert($1) })
                     let modificationIndexSet = modifications.reduce(into: IndexSet(), { $0.insert($1) })
+
+                    tableView.beginUpdates()
+
+                    tableView.deleteSections(deletionIndexSet, with: .automatic)
+                    tableView.insertSections(insertIndexSet, with: .automatic)
+                    tableView.reloadSections(modificationIndexSet, with: .automatic)
                     
                 }
                 break
