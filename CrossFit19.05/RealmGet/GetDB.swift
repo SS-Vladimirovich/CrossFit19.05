@@ -42,7 +42,6 @@ class GetDB {
         } catch {
             print(error)
         }
-
     }
 
     //Group
@@ -65,7 +64,6 @@ class GetDB {
         } catch {
             print(error)
         }
-
     }
 
     //User
@@ -88,6 +86,5 @@ class GetDB {
         } catch {
             print(error)
         }
-
     }
 }

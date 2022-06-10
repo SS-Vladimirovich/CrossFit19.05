@@ -15,11 +15,20 @@ class RealmDB {
     static let shared = RealmDB()
 
     //MARK: - Save BD
-    private func saveInRealm<T: Object>(array: [T]) {
-        guard let realm = try? Realm() else { return }
-        try? realm.write{
-            array.forEach { realm.add($0) }
+    func makeObserver<T>(_: T.Type,
+                         completion: @escaping () -> Void) -> NotificationToken? where T: Object {
+
+        guard let realm = try? Realm() else { return nil }
+        let realmObjects = realm.objects(T.self)
+        let realmNotification = realmObjects.observe { changes in
+            switch changes {
+            case .initial(_), .update(_,_,_,_):
+                completion()
+            case .error(let error):
+                print(error)
+            }
         }
+        return realmNotification
     }
 
     //MARK: - Photo, Group, Users
@@ -39,8 +48,6 @@ class RealmDB {
 
             return realmPhoto
         }
-
-        saveInRealm(array: realmPhotos)
     }
 
     // Group
@@ -56,8 +63,6 @@ class RealmDB {
 
             return realmGroup
         }
-
-        saveInRealm(array: realmGroups)
     }
 
     //Users
@@ -74,8 +79,6 @@ class RealmDB {
 
             return realmUsers
         }
-
-        saveInRealm(array: realmUsers)
     }
 
     //MARK: - get Photo, Group, User
@@ -94,7 +97,6 @@ class RealmDB {
                 )
             }
         )
-
         return photo
 
     }
@@ -113,7 +115,6 @@ class RealmDB {
                 )
             }
         )
-
         return groups
 
     }
@@ -133,7 +134,6 @@ class RealmDB {
                 )
             }
         )
-
         return user
 
     }
