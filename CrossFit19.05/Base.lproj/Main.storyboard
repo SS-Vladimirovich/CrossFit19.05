@@ -622,10 +622,10 @@ Premium Class</string>
             </objects>
             <point key="canvasLocation" x="5024.8000000000002" y="-713.05418719211821"/>
         </scene>
-        <!--View Controller-->
+        <!--News View Controller Two-->
         <scene sceneID="PVj-23-qBf">
             <objects>
-                <viewController id="zMP-1A-wxc" sceneMemberID="viewController">
+                <viewController id="zMP-1A-wxc" customClass="NewsViewControllerTwo" customModule="CrossFit19_05" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gCL-aP-eOW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -800,7 +800,7 @@ Premium Class</string>
                                                                         <constraint firstAttribute="height" constant="25" id="qoI-TA-tXz"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="7.3k" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwP-cf-PLm">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="7.3k" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwP-cf-PLm">
                                                                     <rect key="frame" x="44" y="0.0" width="50" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="Ywc-yI-LDt"/>
