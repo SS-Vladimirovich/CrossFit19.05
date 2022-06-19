@@ -14,12 +14,15 @@ class NewsWeekTableViewController: UITableViewController {
         
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return newsGroups.count
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsGroups", for: indexPath) as? NewsWeekTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "NewsGroups", for: indexPath) as? NewsWeekTableViewCell {
             let item = newsGroups[indexPath.row]
 
             cell.imageAvatarGroup.image = UIImage(named: item.imageAvatar)
