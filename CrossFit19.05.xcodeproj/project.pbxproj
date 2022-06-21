@@ -38,6 +38,7 @@
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
 		88BFC1E1284107B600C609B1 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BFC1E0284107B600C609B1 /* RealmDB.swift */; };
 		88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */; };
+		88D98689285F8197002489FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88D98688285F8197002489FC /* GoogleService-Info.plist */; };
 		88E4A7B22843876D00DBA754 /* GetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E4A7B12843876D00DBA754 /* GetDB.swift */; };
 		88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F70DD42809AB0400638330 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		88BFC1E0284107B600C609B1 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		88D98688285F8197002489FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		88E4A7B12843876D00DBA754 /* GetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDB.swift; sourceTree = "<group>"; };
 		88F70DD42809AB0400638330 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8B02A269C14D9E560B3CE09 /* Pods-CrossFit19.05.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossFit19.05.release.xcconfig"; path = "Target Support Files/Pods-CrossFit19.05/Pods-CrossFit19.05.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				882EE94A27E9ECC70024A451 /* LaunchScreen.storyboard */,
 				882EE94D27E9ECC70024A451 /* Info.plist */,
 				882EE94527E9ECC50024A451 /* CrossFit19_05.xcdatamodeld */,
+				88D98688285F8197002489FC /* GoogleService-Info.plist */,
 				8871B006283CFED0009D069E /* RealmGet */,
 				889A5E1827FEFF0A00AA95F0 /* NewsWeek */,
 				88C2CA9027FE19220089C5E4 /* Groups */,
@@ -294,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				882EE94C27E9ECC70024A451 /* LaunchScreen.storyboard in Resources */,
+				88D98689285F8197002489FC /* GoogleService-Info.plist in Resources */,
 				882EE94927E9ECC70024A451 /* Assets.xcassets in Resources */,
 				882EE94427E9ECC50024A451 /* Main.storyboard in Resources */,
 			);
