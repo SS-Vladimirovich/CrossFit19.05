@@ -37,6 +37,7 @@ struct NewsGroup {
     var creatNews: String
     var textNews: String
     var fotoNews: String
+    var likeCount: String
 
 }
 
