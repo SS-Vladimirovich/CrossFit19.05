@@ -10,6 +10,8 @@ import Alamofire
 
 class NewsWeekTableViewController: UITableViewController {
 
+    private var news: [NewsModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,7 +30,7 @@ class NewsWeekTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        newsGroups.count
+        news.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,19 +42,19 @@ class NewsWeekTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+                let item = news[indexPath.section]
 
-                cell.imagePost.image = UIImage(named: item.imageAvatar)
-                cell.namePost.text = item.nameGroups
-                cell.createPost.text = item.creatNews
+                cell.imagePost.image = UIImage(named: item.avatarURL ?? "")
+                cell.namePost.text = item.creatorName
+//                cell.createPost.text = item.creatNews
 
                 return cell
             }
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+                let item = news[indexPath.section]
 
-                cell.textPost.text = item.textNews
+                cell.textPost.text = item.text
 
                 return cell
             }

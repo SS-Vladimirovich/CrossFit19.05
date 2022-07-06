@@ -44,6 +44,8 @@
 		88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */; };
 		88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */; };
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
+		88B91E4F2872CE4200257C86 /* NewsPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B91E4E2872CE4200257C86 /* NewsPosts.swift */; };
+		88B91E5128731A5D00257C86 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B91E5028731A5D00257C86 /* AppError.swift */; };
 		88BFC1E1284107B600C609B1 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BFC1E0284107B600C609B1 /* RealmDB.swift */; };
 		88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */; };
 		88D98689285F8197002489FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88D98688285F8197002489FC /* GoogleService-Info.plist */; };
@@ -90,6 +92,8 @@
 		88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewCell.swift; sourceTree = "<group>"; };
 		88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewController.swift; sourceTree = "<group>"; };
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		88B91E4E2872CE4200257C86 /* NewsPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPosts.swift; sourceTree = "<group>"; };
+		88B91E5028731A5D00257C86 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		88BFC1E0284107B600C609B1 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		88C5743927F082FD00FDCEB9 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		88D98688285F8197002489FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -235,6 +239,7 @@
 		888BD5E128338F6200C10F6A /* NetWorkSession */ = {
 			isa = PBXGroup;
 			children = (
+				88B91E4D2872CE2600257C86 /* NewsPost */,
 				888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */,
 				88A2718D28168D200063CE78 /* Session.swift */,
 				883E83212833DF5300938355 /* NetWorkService.swift */,
@@ -253,6 +258,15 @@
 				889A5E1B27FEFFC200AA95F0 /* NewsWeekTableViewController.swift */,
 			);
 			path = NewsWeek;
+			sourceTree = "<group>";
+		};
+		88B91E4D2872CE2600257C86 /* NewsPost */ = {
+			isa = PBXGroup;
+			children = (
+				88B91E4E2872CE4200257C86 /* NewsPosts.swift */,
+				88B91E5028731A5D00257C86 /* AppError.swift */,
+			);
+			path = NewsPost;
 			sourceTree = "<group>";
 		};
 		88C2CA8C27FC54FA0089C5E4 /* Controller */ = {
@@ -414,6 +428,7 @@
 			files = (
 				88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */,
 				8871B008283CFEFC009D069E /* RealmGet.swift in Sources */,
+				88B91E4F2872CE4200257C86 /* NewsPosts.swift in Sources */,
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
 				88BFC1E1284107B600C609B1 /* RealmDB.swift in Sources */,
 				886DCF70286B36E100E9A8DF /* TextPostTableViewCell.swift in Sources */,
@@ -438,6 +453,7 @@
 				882EE93D27E9ECC50024A451 /* AppDelegate.swift in Sources */,
 				880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */,
 				88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */,
+				88B91E5128731A5D00257C86 /* AppError.swift in Sources */,
 				88E4A7B22843876D00DBA754 /* GetDB.swift in Sources */,
 				8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */,
 				88A2718E28168D200063CE78 /* Session.swift in Sources */,

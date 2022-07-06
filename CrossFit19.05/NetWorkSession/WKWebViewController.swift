@@ -19,7 +19,7 @@ class WKWebViewController: UIViewController, UIViewControllerTransitioningDelega
 
         var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")
         urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: "8168219"),
+            URLQueryItem(name: "client_id", value: "7437299"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "users,photos,groups"),
@@ -41,7 +41,6 @@ extension WKWebViewController: WKNavigationDelegate {
         decidePolicyFor navigationResponse: WKNavigationResponse,
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
-
 
         guard
             let url = navigationResponse.response.url,
@@ -116,6 +115,3 @@ struct ArrayResponse<T: Decodable>: Decodable {
         response = try groupsContainer.decode([T].self, forKey: .items)
     }
 }
-
-
-//Curent
