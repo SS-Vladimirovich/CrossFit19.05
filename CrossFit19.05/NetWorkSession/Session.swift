@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseMessaging
+
+//MARK: - Session
 
 struct Session {
 
