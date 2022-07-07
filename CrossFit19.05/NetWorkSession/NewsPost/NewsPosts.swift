@@ -127,4 +127,3 @@ struct GroupNews: Codable {
         case avatarURL = "photo_100"
     }
 }
-

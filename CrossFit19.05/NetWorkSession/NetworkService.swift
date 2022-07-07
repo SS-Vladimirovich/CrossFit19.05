@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import WebKit
-import SwiftUI
-import RealmSwift
+import PromiseKit
 
-class NetWorkServiceGet {
+class NetworkingService {
 
     private var urlConstructor = URLComponents()
+    private let constants = NetworkConstants()
     private let configuration: URLSessionConfiguration!
     private let session: URLSession!
 
@@ -23,77 +22,35 @@ class NetWorkServiceGet {
         session = URLSession(configuration: configuration)
     }
 
-    //Получение фотографий человека
-    static func getAllPhotos(userId: Int, completion: @escaping([PhotoModel]) -> ()) {
-
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/photos.getAll")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "owner_id", value: "\(userId)"),
-            URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "v", value: "5.131")
+    func  getAuthorizeRequest() -> URLRequest? {
+        urlConstructor.host = "oauth.vk.com"
+        urlConstructor.path = "/authorize"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "client_id", value: constants.clientID),
+            URLQueryItem(name: "scope", value: constants.scope),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "v", value: constants.versionAPI)
         ]
 
-        guard let url = urlComponents?.url else { return }
-
-        NetworkService.shared.sendGetRequest(url: url) { data in
-
-            guard let photos = try? JSONDecoder().decode(ArrayResponse<PhotoModel>.self, from: data) else { return }
-            completion(photos.response)
-        }
+        guard let url = urlConstructor.url else { return nil }
+        let request = URLRequest(url: url)
+        return request
     }
 
-    //Получение групп текущего пользователя
-    static func getAllgroup(userId: Int, completion: @escaping([GroupModel]) -> ()) {
-
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/groups.get")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "user_id", value: "\(userId)"),
-            URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "v", value: "5.131")
-        ]
-
-        guard let url = urlComponents?.url else { return }
-
-        NetworkService.shared.sendGetRequest(url: url) { data in
-
-            guard let groups = try? JSONDecoder().decode(ArrayResponse<GroupModel>.self, from: data) else { return }
-            completion(groups.response)
-        }
-    }
-
-    //Получение групп Users пользователя
-    static func getUsers(userId: Int, completion: @escaping([GetUsers]) -> ()) {
-
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/users.get")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "user_ids", value: "screen_name"),
-            URLQueryItem(name: "fields", value: "photo_50"),
-            URLQueryItem(name: "v", value: "5.131")
-        ]
-
-        guard let url = urlComponents?.url else { return }
-
-        NetworkService.shared.sendGetRequest(url: url) { data in
-
-            guard let users = try? JSONDecoder().decode(ArrayResponse<GetUsers>.self, from: data) else { return }
-            completion(users.response)
-        }
-    }
-
-    //Получение новостей Групп пользователя
+    //MARK: - News feed
+    // Result use
     func getNews(completion: @escaping ([NewsModel]) -> Void, onError: @escaping (Error) -> Void) {
 
         // 1. Создаем URL для запроса
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/newsfeed.get")
+        urlConstructor.path = "/method/newsfeed.get"
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
             URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "v", value: "5.131"),
+            URLQueryItem(name: "v", value: constants.versionAPI),
         ]
 
         // 2. Создаем запрос
@@ -147,13 +104,14 @@ class NetWorkServiceGet {
     func getNewsResult(completion: @escaping (Swift.Result<[NewsModel], AppError>) -> Void) {
 
         // 1. Создаем URL для запроса
-        var urlComponents = URLComponents(string: "https://api.vk.com/method/newsfeed.get")
+        urlConstructor.path = "/method/newsfeed.get"
+
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
             URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "v", value: "5.131"),
+            URLQueryItem(name: "v", value: constants.versionAPI),
         ]
 
         // 2. Создаем запрос
@@ -203,82 +161,71 @@ class NetWorkServiceGet {
         }
         task.resume()
     }
-}
 
-// MARK: - Struct
+    //MARK: - News feed
+    // 1. Создаем URL для запроса
+    func getUrl() -> Promise<URL> {
+        urlConstructor.path = "/method/newsfeed.get"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "filters", value: "post"),
+            URLQueryItem(name: "start_from", value: "next_from"),
+            URLQueryItem(name: "count", value: "20"),
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
 
-//PhotoModel
-
-struct PhotoModel: Decodable {
-
-    let sizes: [SizeModel]
-    let text: String
-    let likes: LikeModel
-    let reposts: RepostModel
-
-    func getUrlBigPhoto() -> String {
-
-        let sort = sizes.sorted(by: { $0.type > $1.type })
-
-        return sort.first?.url ?? ""
+        return Promise  { resolver in
+            guard let url = urlConstructor.url else {
+                resolver.reject(AppError.notCorrectUrl)
+                return
+            }
+            resolver.fulfill(url)
+        }
     }
-}
 
-struct SizeModel: Decodable {
-
-    let height: Int
-    let width: Int
-    let url: String
-    let type: String
-}
-
-struct LikeModel: Decodable {
-
-    let count: Int
-    let userLikes: Int
-
-    enum CodingKeys: String, CodingKey {
-
-        case count
-        case userLikes = "user_likes"
+    // 2. Создаем запрос получили данные
+    func getData(_ url: URL) -> Promise<Data> {
+        return Promise { resolver in
+            session.dataTask(with: url) {  (data, response, error) in
+                guard let data = data else {
+                    resolver.reject(AppError.errorTask)
+                    return
+                }
+                resolver.fulfill(data)
+            }.resume()
+        }
     }
-}
 
-struct RepostModel: Decodable {
-
-    let count: Int
-}
-
-//GroupModel
-struct GroupModel: Decodable {
-
-    let id: Int
-    let isMember: Int
-    let name: String
-    let photo50: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case isMember = "is_member"
-        case name
-        case photo50 = "photo_50"
+    // Парсим Данные
+    func getParsedData(_ data: Data) -> Promise<ItemsNews> {
+        return Promise  { resolver in
+            do {
+                let response = try JSONDecoder().decode(ResponseNews.self, from: data).response
+                resolver.fulfill(response)
+            } catch {
+                resolver.reject(AppError.failedToDecode)
+            }
+        }
     }
-}
 
-//getUsers
-struct GetUsers: Decodable {
+    func getNews(_ items: ItemsNews) -> Promise<[NewsModel]> {
+        return Promise<[NewsModel]> { resolver in
+            var news = items.items
+            let groups = items.groups
+            let profiles = items.profiles
 
-    let id: Int
-    let name: String
-    let photo50: String
-    let firstName: String
-    let lastName: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case photo50 = "photo_50"
-        case firstName
-        case lastName
+            for index in 0..<news.count {
+                if news[index].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[index].sourceID })
+                    news[index].avatarURL = group?.avatarURL
+                    news[index].creatorName = group?.name
+                } else {
+                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
+                    news[index].avatarURL = profile?.avatarURL
+                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                }
+            }
+            resolver.fulfill(news)
+        }
     }
 }

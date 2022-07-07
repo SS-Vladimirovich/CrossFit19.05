@@ -10,43 +10,10 @@ import RealmSwift
 
 class FotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    private var photoArray: [RealmPhoto] = []
-    private var realmNotificationFoto: NotificationToken?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        GetDB.shared.loadPhotos(userId: Session.instance.userId) { photos in
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
     }
-
-    //MARK: - автоматическое обновление информации при изменении данных в Realm через notifications.
-
-    private func makeObserverPhoto(realm: Realm) {
-            let objs = realm.objects(RealmPhoto.self)
-            realmNotificationFoto = objs.observe({ changes in
-                switch changes {
-                case let .initial(objs):
-                    self.photoArray = Array(objs)
-                    self.collectionView.reloadData()
-                case .error(let error): print(error)
-                case let .update(photoArray, deletions, insertions, modifications):
-
-                    DispatchQueue.main.sync { [self] in
-                        self.photoArray = Array(photoArray)
-
-                        let deletionIndexSet = deletions.reduce(into: IndexSet(), { $0.insert($1) })
-                        let insertIndexSet = insertions.reduce(into: IndexSet(), { $0.insert($1) })
-                        let modificationIndexSet = modifications.reduce(into: IndexSet(), { $0.insert($1) })
-
-                    }
-                    break
-                }
-            })
-        }
 
     //MARK: - Отображение на экране
 

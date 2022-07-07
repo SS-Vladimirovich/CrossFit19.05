@@ -11,6 +11,7 @@ import Alamofire
 class NewsWeekTableViewController: UITableViewController {
 
     private var news: [NewsModel] = []
+    private let service = NetworkingService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +22,29 @@ class NewsWeekTableViewController: UITableViewController {
         //register Footer
         tableView.register(UINib(nibName: "FooterPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFooter")
 
-        //register Test
+        //register Text
         tableView.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionText")
 
         //register Foto
         tableView.register(UINib(nibName: "FotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFoto")
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        service.getUrl()
+            .get({ url in
+                print(url)
+            })
+            .then(on: DispatchQueue.global(), service.getData(_:))
+            .then(service.getParsedData(_:))
+            .then(service.getNews(_:))
+            .done(on: DispatchQueue.main) { news in
+                self.news = news
+                self.tableView.reloadData()
+            }.catch { error in
+                print(error)
+            }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,9 +62,9 @@ class NewsWeekTableViewController: UITableViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell {
                 let item = news[indexPath.section]
 
-                cell.imagePost.image = UIImage(named: item.avatarURL ?? "")
+                cell.imagePost.image = UIImage(named: item.avatarURL!)
                 cell.namePost.text = item.creatorName
-//                cell.createPost.text = item.creatNews
+//                cell.createPost.double = item.date
 
                 return cell
             }
@@ -60,17 +78,17 @@ class NewsWeekTableViewController: UITableViewController {
             }
         case 2:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFoto") as? FotoPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+                let item = news[indexPath.section]
 
-                cell.imageFotoPost.image = UIImage(named: item.fotoNews)
+//                cell.imageFotoPost.image = UIImage(named: item.fotoNews)
 
                 return cell
             }
         case 3:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+                let item = news[indexPath.section]
 
-                cell.likeCount.text = item.likeCount
+//                cell.likeCount.text = item.likeCount
 
                 return cell
             }

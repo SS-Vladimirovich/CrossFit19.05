@@ -10,40 +10,9 @@ import RealmSwift
 
 class ViewController: UIViewController {
 
-    var userArray: [RealmUser] = []
-    private var realmNotificationUser: NotificationToken?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        GetDB.shared.loadUser(userId: Session.instance.userId) { users in
-            DispatchQueue.main.async {
-            }
-        }
-    }
 
-    //MARK: - автоматическое обновление информации при изменении данных в Realm через notifications.
-
-    private func makeObserverGroup(realm: Realm) {
-        let objs = realm.objects(RealmUser.self)
-        realmNotificationUser = objs.observe({ changes in
-            switch changes {
-            case let .initial(objs):
-                self.userArray = Array(objs)
-            case .error(let error): print(error)
-            case let .update(groupsArray, deletions, insertions, modifications):
-
-                DispatchQueue.main.sync { [self] in
-                    self.userArray = Array(groupsArray)
-
-                    let deletionIndexSet = deletions.reduce(into: IndexSet(), { $0.insert($1) })
-                    let insertIndexSet = insertions.reduce(into: IndexSet(), { $0.insert($1) })
-                    let modificationIndexSet = modifications.reduce(into: IndexSet(), { $0.insert($1) })
-
-                }
-                break
-            }
-        })
     }
 
     //MARK: - Отображение на экране
