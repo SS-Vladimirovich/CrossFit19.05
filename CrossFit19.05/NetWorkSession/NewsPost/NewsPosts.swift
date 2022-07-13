@@ -5,7 +5,6 @@
 //  Created by Sergey Sokolov on 04.07.2022.
 //
 
-import Foundation
 import UIKit
 
 struct NewsModel: Codable {
@@ -13,7 +12,7 @@ struct NewsModel: Codable {
     let text: String
     let date: Double
     let attachments: [Attachment]?
-    let likes: LikeModel2
+    let likes: LikeModel
     let comments: CommentModel
     let sourceID: Int
     var avatarURL: String?
@@ -48,7 +47,7 @@ struct Attachment: Codable {
     let photo: PhotoNews?
 }
 
-struct LikeModel2: Codable {
+struct LikeModel: Codable {
     let count: Int
 }
 

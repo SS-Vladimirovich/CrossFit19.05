@@ -28,8 +28,8 @@
 		886DCF6C286B2C1E00E9A8DF /* FooterPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886DCF6A286B2C1E00E9A8DF /* FooterPostTableViewCell.xib */; };
 		886DCF70286B36E100E9A8DF /* TextPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886DCF6E286B36E000E9A8DF /* TextPostTableViewCell.swift */; };
 		886DCF71286B36E100E9A8DF /* TextPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886DCF6F286B36E100E9A8DF /* TextPostTableViewCell.xib */; };
-		886DCF75286B3B3D00E9A8DF /* FotoPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886DCF73286B3B3D00E9A8DF /* FotoPostTableViewCell.swift */; };
-		886DCF76286B3B3D00E9A8DF /* FotoPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886DCF74286B3B3D00E9A8DF /* FotoPostTableViewCell.xib */; };
+		886DCF75286B3B3D00E9A8DF /* PhotoPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886DCF73286B3B3D00E9A8DF /* PhotoPostTableViewCell.swift */; };
+		886DCF76286B3B3D00E9A8DF /* PhotoPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886DCF74286B3B3D00E9A8DF /* PhotoPostTableViewCell.xib */; };
 		8883DE4127F7164E00A41492 /* dataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4027F7164E00A41492 /* dataSource.swift */; };
 		8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8883DE4427F71E2B00A41492 /* DrawView.swift */; };
 		888BD5E028326A4C00C10F6A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */; };
@@ -40,6 +40,10 @@
 		88B5329928114EE5002B1065 /* PresentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5329828114EE5002B1065 /* PresentSegue.swift */; };
 		88B5329D2812AE36002B1065 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B5329C2812AE36002B1065 /* CustomNavigationController.swift */; };
 		88B62BC127F9E0A8005EE67B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B62BC027F9E0A8005EE67B /* GradientView.swift */; };
+		88B757C0287C15D700467DD4 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B757BF287C15D700467DD4 /* NetworkConstants.swift */; };
+		88B757C2287C162200467DD4 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B757C1287C162200467DD4 /* PhotoService.swift */; };
+		88B757C4287C1A9100467DD4 /* ImageServes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B757C3287C1A9100467DD4 /* ImageServes.swift */; };
+		88B757C6287C4E2800467DD4 /* Extention+UiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B757C5287C4E2800467DD4 /* Extention+UiImageView.swift */; };
 		88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */; };
 		88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */; };
 		88B7E39827F1A7B30029141C /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */; };
@@ -73,8 +77,8 @@
 		886DCF6A286B2C1E00E9A8DF /* FooterPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterPostTableViewCell.xib; sourceTree = "<group>"; };
 		886DCF6E286B36E000E9A8DF /* TextPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostTableViewCell.swift; sourceTree = "<group>"; };
 		886DCF6F286B36E100E9A8DF /* TextPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPostTableViewCell.xib; sourceTree = "<group>"; };
-		886DCF73286B3B3D00E9A8DF /* FotoPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoPostTableViewCell.swift; sourceTree = "<group>"; };
-		886DCF74286B3B3D00E9A8DF /* FotoPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FotoPostTableViewCell.xib; sourceTree = "<group>"; };
+		886DCF73286B3B3D00E9A8DF /* PhotoPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostTableViewCell.swift; sourceTree = "<group>"; };
+		886DCF74286B3B3D00E9A8DF /* PhotoPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPostTableViewCell.xib; sourceTree = "<group>"; };
 		8883DE4027F7164E00A41492 /* dataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSource.swift; sourceTree = "<group>"; };
 		8883DE4427F71E2B00A41492 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		888BD5DF28326A4C00C10F6A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,10 @@
 		88B5329828114EE5002B1065 /* PresentSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentSegue.swift; sourceTree = "<group>"; };
 		88B5329C2812AE36002B1065 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		88B62BC027F9E0A8005EE67B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		88B757BF287C15D700467DD4 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		88B757C1287C162200467DD4 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		88B757C3287C1A9100467DD4 /* ImageServes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServes.swift; sourceTree = "<group>"; };
+		88B757C5287C4E2800467DD4 /* Extention+UiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UiImageView.swift"; sourceTree = "<group>"; };
 		88B7E39227F0D5EF0029141C /* AllGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewCell.swift; sourceTree = "<group>"; };
 		88B7E39527F1A7580029141C /* FotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewController.swift; sourceTree = "<group>"; };
 		88B7E39727F1A7B30029141C /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 				88F70DD42809AB0400638330 /* LoginViewController.swift */,
 				88B5329828114EE5002B1065 /* PresentSegue.swift */,
 				88B5329C2812AE36002B1065 /* CustomNavigationController.swift */,
+				88B757C5287C4E2800467DD4 /* Extention+UiImageView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,13 +219,13 @@
 			path = TextPost;
 			sourceTree = "<group>";
 		};
-		886DCF72286B3B2500E9A8DF /* FotoPost */ = {
+		886DCF72286B3B2500E9A8DF /* PhotoPost */ = {
 			isa = PBXGroup;
 			children = (
-				886DCF73286B3B3D00E9A8DF /* FotoPostTableViewCell.swift */,
-				886DCF74286B3B3D00E9A8DF /* FotoPostTableViewCell.xib */,
+				886DCF73286B3B3D00E9A8DF /* PhotoPostTableViewCell.swift */,
+				886DCF74286B3B3D00E9A8DF /* PhotoPostTableViewCell.xib */,
 			);
-			path = FotoPost;
+			path = PhotoPost;
 			sourceTree = "<group>";
 		};
 		888BD5E128338F6200C10F6A /* NetWorkSession */ = {
@@ -233,12 +242,14 @@
 		889A5E1827FEFF0A00AA95F0 /* NewsWeek */ = {
 			isa = PBXGroup;
 			children = (
-				886DCF72286B3B2500E9A8DF /* FotoPost */,
+				886DCF72286B3B2500E9A8DF /* PhotoPost */,
 				886DCF6D286B36BF00E9A8DF /* TextPost */,
 				886DCF68286B2C0200E9A8DF /* FooterPost */,
 				886DCF5E286B0DFE00E9A8DF /* HeaderPost */,
 				889A5E1927FEFF9900AA95F0 /* NewsWeekTableViewCell.swift */,
 				889A5E1B27FEFFC200AA95F0 /* NewsWeekTableViewController.swift */,
+				88B757C1287C162200467DD4 /* PhotoService.swift */,
+				88B757C3287C1A9100467DD4 /* ImageServes.swift */,
 			);
 			path = NewsWeek;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 			children = (
 				88B91E4E2872CE4200257C86 /* NewsPosts.swift */,
 				88B91E5028731A5D00257C86 /* AppError.swift */,
+				88B757BF287C15D700467DD4 /* NetworkConstants.swift */,
 			);
 			path = NewsPost;
 			sourceTree = "<group>";
@@ -352,7 +364,7 @@
 				886DCF66286B0F2D00E9A8DF /* NewsPostTableViewCell.xib in Resources */,
 				882EE94C27E9ECC70024A451 /* LaunchScreen.storyboard in Resources */,
 				886DCF71286B36E100E9A8DF /* TextPostTableViewCell.xib in Resources */,
-				886DCF76286B3B3D00E9A8DF /* FotoPostTableViewCell.xib in Resources */,
+				886DCF76286B3B3D00E9A8DF /* PhotoPostTableViewCell.xib in Resources */,
 				886DCF6C286B2C1E00E9A8DF /* FooterPostTableViewCell.xib in Resources */,
 				88D98689285F8197002489FC /* GoogleService-Info.plist in Resources */,
 				882EE94927E9ECC70024A451 /* Assets.xcassets in Resources */,
@@ -412,6 +424,7 @@
 				88F70DD52809AB0400638330 /* LoginViewController.swift in Sources */,
 				88B91E4F2872CE4200257C86 /* NewsPosts.swift in Sources */,
 				882EE94127E9ECC50024A451 /* ViewController.swift in Sources */,
+				88B757C6287C4E2800467DD4 /* Extention+UiImageView.swift in Sources */,
 				886DCF70286B36E100E9A8DF /* TextPostTableViewCell.swift in Sources */,
 				889A5E1C27FEFFC200AA95F0 /* NewsWeekTableViewController.swift in Sources */,
 				886DCF6B286B2C1E00E9A8DF /* FooterPostTableViewCell.swift in Sources */,
@@ -423,6 +436,8 @@
 				88646D8427F880AE0037D73A /* LikeControl.swift in Sources */,
 				880D220927F09D710059E6B9 /* GroupsTableViewController.swift in Sources */,
 				880D220327F089EA0059E6B9 /* Friends.swift in Sources */,
+				88B757C2287C162200467DD4 /* PhotoService.swift in Sources */,
+				88B757C4287C1A9100467DD4 /* ImageServes.swift in Sources */,
 				88B62BC127F9E0A8005EE67B /* GradientView.swift in Sources */,
 				886DCF65286B0F2D00E9A8DF /* NewsPostTableViewCell.swift in Sources */,
 				880D221527F0D12D0059E6B9 /* AllGroupsTableViewController.swift in Sources */,
@@ -433,6 +448,7 @@
 				880D221027F09F370059E6B9 /* GroupsTableViewCell.swift in Sources */,
 				882EE93D27E9ECC50024A451 /* AppDelegate.swift in Sources */,
 				880D21FF27F086790059E6B9 /* FriendsTableViewCell.swift in Sources */,
+				88B757C0287C15D700467DD4 /* NetworkConstants.swift in Sources */,
 				88B7E39627F1A7580029141C /* FotoCollectionViewController.swift in Sources */,
 				88B91E5128731A5D00257C86 /* AppError.swift in Sources */,
 				8883DE4527F71E2B00A41492 /* DrawView.swift in Sources */,
@@ -440,7 +456,7 @@
 				88B7E39327F0D5EF0029141C /* AllGroupsTableViewCell.swift in Sources */,
 				882EE93F27E9ECC50024A451 /* SceneDelegate.swift in Sources */,
 				88C5743A27F082FD00FDCEB9 /* FriendsTableViewController.swift in Sources */,
-				886DCF75286B3B3D00E9A8DF /* FotoPostTableViewCell.swift in Sources */,
+				886DCF75286B3B3D00E9A8DF /* PhotoPostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,8 +47,8 @@ extension WKWebViewController: WKNavigationDelegate {
 
         let token = params["access_token"]
         let userID = params["user_id"]
-        Session.instance.userId = Int(userID ?? "")!
-        Session.instance.token = token!
+        SessionApp.shared.userId = Int(userID ?? "")!
+        SessionApp.shared.token = token!
 
         performSegue(
             withIdentifier: "loginViewIndenti",

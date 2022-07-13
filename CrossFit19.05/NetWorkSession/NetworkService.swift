@@ -45,11 +45,12 @@ class NetworkingService {
 
         // 1. Создаем URL для запроса
         urlConstructor.path = "/method/newsfeed.get"
+
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
-            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
 
@@ -82,15 +83,15 @@ class NetworkingService {
             }
 
             // 6 Объединяю массивы
-            for index in 0..<news.count {
-                if news[index].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[index].sourceID })
-                    news[index].avatarURL = group?.avatarURL
-                    news[index].creatorName = group?.name
+            for i in 0..<news.count {
+                if news[i].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[i].sourceID })
+                    news[i].avatarURL = group?.avatarURL
+                    news[i].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
-                    news[index].avatarURL = profile?.avatarURL
-                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
+                    news[i].avatarURL = profile?.avatarURL
+                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
 
@@ -110,7 +111,7 @@ class NetworkingService {
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
-            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
 
@@ -143,15 +144,15 @@ class NetworkingService {
             }
 
             // 6 Объединяю массивы
-            for index in 0..<news.count {
-                if news[index].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[index].sourceID })
-                    news[index].avatarURL = group?.avatarURL
-                    news[index].creatorName = group?.name
+            for i in 0..<news.count {
+                if news[i].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[i].sourceID })
+                    news[i].avatarURL = group?.avatarURL
+                    news[i].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
-                    news[index].avatarURL = profile?.avatarURL
-                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
+                    news[i].avatarURL = profile?.avatarURL
+                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
 
@@ -162,15 +163,15 @@ class NetworkingService {
         task.resume()
     }
 
-    //MARK: - News feed
     // 1. Создаем URL для запроса
     func getUrl() -> Promise<URL> {
         urlConstructor.path = "/method/newsfeed.get"
+
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
             URLQueryItem(name: "count", value: "20"),
-            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
 
@@ -214,15 +215,15 @@ class NetworkingService {
             let groups = items.groups
             let profiles = items.profiles
 
-            for index in 0..<news.count {
-                if news[index].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[index].sourceID })
-                    news[index].avatarURL = group?.avatarURL
-                    news[index].creatorName = group?.name
+            for i in 0..<news.count {
+                if news[i].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[i].sourceID })
+                    news[i].avatarURL = group?.avatarURL
+                    news[i].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
-                    news[index].avatarURL = profile?.avatarURL
-                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
+                    news[i].avatarURL = profile?.avatarURL
+                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
             resolver.fulfill(news)

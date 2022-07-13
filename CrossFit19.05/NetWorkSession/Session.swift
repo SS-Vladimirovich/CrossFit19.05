@@ -12,22 +12,12 @@ import FirebaseMessaging
 
 //MARK: - Session
 
-struct Session {
+struct SessionApp {
 
-    static var instance = Session()
+    static var shared = SessionApp()
 
-    private init(){}
+    private init() {}
 
     var token = ""
     var userId = 0
-}
-
-//MARK: - NetworkConstants
-struct NetworkConstants {
-    let scheme = "https"
-    let host = "api.vk.com"
-
-    let clientID = "7437299"
-    let scope = "401502"
-    let versionAPI = "5.131"
 }

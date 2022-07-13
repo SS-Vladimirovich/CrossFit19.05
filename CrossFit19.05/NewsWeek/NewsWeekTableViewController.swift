@@ -13,8 +13,11 @@ class NewsWeekTableViewController: UITableViewController {
     private var news: [NewsModel] = []
     private let service = NetworkingService()
 
+    private var imageService: PhotoService?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageService = PhotoService(container: tableView)
 
         //register Header
         tableView.register(UINib(nibName: "NewsPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionHeader")
@@ -28,10 +31,7 @@ class NewsWeekTableViewController: UITableViewController {
         //register Foto
         tableView.register(UINib(nibName: "FotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFoto")
 
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        //get
         service.getUrl()
             .get({ url in
                 print(url)
@@ -45,10 +45,12 @@ class NewsWeekTableViewController: UITableViewController {
             }.catch { error in
                 print(error)
             }
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         news.count
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,43 +61,32 @@ class NewsWeekTableViewController: UITableViewController {
 
         switch indexPath.row {
         case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell {
-                let item = news[indexPath.section]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
 
-                cell.imagePost.image = UIImage(named: item.avatarURL!)
-                cell.namePost.text = item.creatorName
-//                cell.createPost.double = item.date
-
-                return cell
-            }
+            return cell
         case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell else { return UITableViewCell() }
                 let item = news[indexPath.section]
 
                 cell.textPost.text = item.text
 
                 return cell
-            }
         case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFoto") as? FotoPostTableViewCell {
-                let item = news[indexPath.section]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionPhoto") as? PhotoPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
 
-//                cell.imageFotoPost.image = UIImage(named: item.fotoNews)
-
-                return cell
-            }
+            return cell
         case 3:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell else { return UITableViewCell() }
                 let item = news[indexPath.section]
 
-//                cell.likeCount.text = item.likeCount
-
                 return cell
-            }
         default:
             return UITableViewCell()
         }
-        return UITableViewCell()
     }
 }
 
