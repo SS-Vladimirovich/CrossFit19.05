@@ -12,11 +12,11 @@ import FirebaseMessaging
 
 //MARK: - Session
 
-struct Session {
+struct SessionApp {
 
-    static var instance = Session()
+    static var shared = SessionApp()
 
-    private init(){}
+    private init() {}
 
     var token = ""
     var userId = 0

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Psj-Pq-mOY">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -62,7 +62,6 @@ Premium Class</string>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bet-mM-gl9"/>
-                                                            <segue destination="drD-ui-lcm" kind="presentation" modalPresentationStyle="fullScreen" id="f7b-nC-8ZB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -144,6 +143,7 @@ Premium Class</string>
                     <navigationItem key="navigationItem" id="9TE-tk-g8i"/>
                     <connections>
                         <outlet property="webView" destination="xFw-em-gvg" id="4av-1x-Erp"/>
+                        <segue destination="drD-ui-lcm" kind="presentation" identifier="loginViewIndenti" modalPresentationStyle="fullScreen" id="uNR-nL-YcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngd-Hs-QFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

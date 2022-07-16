@@ -13,15 +13,10 @@ class NewsPostTableViewCell: UITableViewCell {
     @IBOutlet weak var namePost: UILabel!
     @IBOutlet weak var createPost: UILabel!
     @IBOutlet weak var menuPost: UIButton!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
 
+    func configure(with newsModel: NewsModel) {
+        namePost.text = newsModel.creatorName
+        createPost.text = newsModel.getStringDate()
+        imagePost.loadImage(newsModel.avatarURL ?? "")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-    
 }

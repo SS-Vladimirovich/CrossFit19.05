@@ -7,7 +7,7 @@
 
 import UIKit
 
-//MARK: -  Структура для сортировки
+//MARK: - Структура для сортировки
 
 struct GroupFriends {
 

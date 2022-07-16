@@ -10,8 +10,14 @@ import Alamofire
 
 class NewsWeekTableViewController: UITableViewController {
 
+    private var news: [NewsModel] = []
+    private let service = NetworkingService()
+
+    private var imageService: PhotoService?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageService = PhotoService(container: tableView)
 
         //register Header
         tableView.register(UINib(nibName: "NewsPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionHeader")
@@ -19,16 +25,32 @@ class NewsWeekTableViewController: UITableViewController {
         //register Footer
         tableView.register(UINib(nibName: "FooterPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFooter")
 
-        //register Test
+        //register Text
         tableView.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionText")
 
         //register Foto
         tableView.register(UINib(nibName: "FotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFoto")
 
+        //get
+        service.getUrl()
+            .get({ url in
+                print(url)
+            })
+            .then(on: DispatchQueue.global(), service.getData(_:))
+            .then(service.getParsedData(_:))
+            .then(service.getNews(_:))
+            .done(on: DispatchQueue.main) { news in
+                self.news = news
+                self.tableView.reloadData()
+            }.catch { error in
+                print(error)
+            }
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        newsGroups.count
+        news.count
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,43 +61,32 @@ class NewsWeekTableViewController: UITableViewController {
 
         switch indexPath.row {
         case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
 
-                cell.imagePost.image = UIImage(named: item.imageAvatar)
-                cell.namePost.text = item.nameGroups
-                cell.createPost.text = item.creatNews
-
-                return cell
-            }
+            return cell
         case 1:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell else { return UITableViewCell() }
+                let item = news[indexPath.section]
 
-                cell.textPost.text = item.textNews
+                cell.textPost.text = item.text
 
                 return cell
-            }
         case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFoto") as? FotoPostTableViewCell {
-                let item = newsGroups[indexPath.section]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionPhoto") as? PhotoPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
 
-                cell.imageFotoPost.image = UIImage(named: item.fotoNews)
-
-                return cell
-            }
+            return cell
         case 3:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell {
-                let item = newsGroups[indexPath.section]
-
-                cell.likeCount.text = item.likeCount
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell else { return UITableViewCell() }
+                let item = news[indexPath.section]
 
                 return cell
-            }
         default:
             return UITableViewCell()
         }
-        return UITableViewCell()
     }
 }
 
