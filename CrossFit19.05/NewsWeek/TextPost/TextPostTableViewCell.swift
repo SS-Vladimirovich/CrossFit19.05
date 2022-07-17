@@ -11,5 +11,4 @@ class TextPostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textPost: UITextView!
     
-    
 }

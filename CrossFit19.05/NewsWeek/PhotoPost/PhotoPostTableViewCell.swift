@@ -11,8 +11,11 @@ class PhotoPostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagePhotoPost: UIImageView!
 
-    func configure(with newsModel: NewsModel) {
+    func configureOne(_ url: String) {
+        imagePhotoPost.loadImage(url)
+    }
 
-        imagePhotoPost.loadImage(newsModel.photosURL)
+    func configureOne(_ image: UIImage?) {
+        imagePhotoPost.image = image
     }
 }

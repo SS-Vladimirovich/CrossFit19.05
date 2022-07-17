@@ -9,28 +9,28 @@ import UIKit
 
 class ImageServes: UITableViewCell {
 
-    static let identifier: String = "ImageCell"
-
-    private let newsImageView: UIImageView = {
-        let newsImageView = UIImageView()
-        newsImageView.translatesAutoresizingMaskIntoConstraints = false
-        return newsImageView
-    }()
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        newsImageView.image = nil
-    }
-
-    func configure(_ url: String) {
-        newsImageView.loadImage(url)
-    }
-
-    func configure(_ image: UIImage?) {
-        newsImageView.image = image
-    }
+//    static let identifier: String = "ImageCell"
+//
+//    private let newsImageView: UIImageView = {
+//        let newsImageView = UIImageView()
+//        newsImageView.translatesAutoresizingMaskIntoConstraints = false
+//        return newsImageView
+//    }()
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        newsImageView.image = nil
+//    }
+//
+//    func configureOne(_ url: String) {
+//        newsImageView.loadImage(url)
+//    }
+//
+//    func configureOne(_ image: UIImage?) {
+//        newsImageView.image = image
+//    }
 }

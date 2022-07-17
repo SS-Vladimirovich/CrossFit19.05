@@ -13,5 +13,9 @@ class FooterPostTableViewCell: UITableViewCell {
     @IBOutlet weak var comentsCount: UILabel!
     @IBOutlet weak var arrowCount: UILabel!
     @IBOutlet weak var eyeCount: UILabel!
-
+    
+    func configure(with newsModel: NewsModel) {
+        likeCount.text = "\(newsModel.likes.count)"
+        comentsCount.text = "\(newsModel.comments.count)"
+    }
 }

@@ -12,7 +12,6 @@ class NewsWeekTableViewController: UITableViewController {
 
     private var news: [NewsModel] = []
     private let service = NetworkingService()
-
     private var imageService: PhotoService?
 
     override func viewDidLoad() {
@@ -58,32 +57,34 @@ class NewsWeekTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell else { return UITableViewCell() }
             let item = news[indexPath.section]
             cell.configure(with: item)
-
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell else { return UITableViewCell() }
-                let item = news[indexPath.section]
-
-                cell.textPost.text = item.text
-
-                return cell
+            let item = news[indexPath.section]
+            
+            cell.textPost.text = item.text
+            
+            return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionPhoto") as? PhotoPostTableViewCell else { return UITableViewCell() }
-            let item = news[indexPath.section]
-            cell.configure(with: item)
-
+            guard let urlImage = news[indexPath.section].photosURL?.first else { return UITableViewCell() }
+            let image = imageService?.photo(atIndexPath: indexPath, byUrl: urlImage)
+            cell.configureOne(image)
+            
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell else { return UITableViewCell() }
-                let item = news[indexPath.section]
-
-                return cell
+            let item = news[indexPath.section]
+            cell.configure(with: item)
+            
+            return cell
         default:
             return UITableViewCell()
         }
