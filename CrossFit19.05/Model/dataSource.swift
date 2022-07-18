@@ -76,8 +76,22 @@ var allGroups: [GroupsName] = [
 ]
 
 var newsGroups: [NewsGroup] = [
-NewsGroup(nameGroups: "CrossFit-19.05",
+    NewsGroup(nameGroups: "CrossFit-19.05",
           imageAvatar: "avatarGroup1",
           creatNews: "12.04.2022",
           textNews: "Пикачу́ (яп. ピカチュウ Пикатю:, англ. Pikachu) — существо из серии игр, манги и аниме «Покемон», принадлежащей компаниям Nintendo и Game Freak.",
-          fotoNews: "fotoLegasi")]
+          fotoNews: "fotoLegasi",
+             likeCount: "2222"),
+    NewsGroup(nameGroups: "NewAlhogol",
+          imageAvatar: "avatarGroup2",
+          creatNews: "12.04.2022",
+          textNews: "Пикачу́ (яп. ピカチュウ Пикатю:, англ. Pikachu) — существо из серии игр, манги и аниме «Покемон», принадлежащей компаниям Nintendo и Game Freak.",
+          fotoNews: "fotoFour",
+             likeCount: "11111"),
+    NewsGroup(nameGroups: "OldAlhogol",
+          imageAvatar: "avatarGroup3",
+          creatNews: "12.04.2022",
+          textNews: "Пикачу́ (яп. ピカチュウ Пикатю:, англ. Pikachu) — существо из серии игр, манги и аниме «Покемон», принадлежащей компаниям Nintendo и Game Freak.",
+          fotoNews: "fotoOne",
+             likeCount: "23333")
+]

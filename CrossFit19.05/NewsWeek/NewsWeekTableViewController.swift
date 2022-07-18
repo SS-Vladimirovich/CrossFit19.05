@@ -6,31 +6,88 @@
 //
 
 import UIKit
+import Alamofire
 
 class NewsWeekTableViewController: UITableViewController {
 
+    private var news: [NewsModel] = []
+    private let service = NetworkingService()
+    private var imageService: PhotoService?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageService = PhotoService(container: tableView)
+
+        //register Header
+        tableView.register(UINib(nibName: "NewsPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionHeader")
+
+        //register Footer
+        tableView.register(UINib(nibName: "FooterPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFooter")
+
+        //register Text
+        tableView.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionText")
+
+        //register Foto
+        tableView.register(UINib(nibName: "PhotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionPhoto")
+
+        //get
+        service.getUrl()
+            .get({ url in
+                print(url)
+            })
+            .then(on: DispatchQueue.global(), service.getData(_:))
+            .then(service.getParsedData(_:))
+            .then(service.getNews(_:))
+            .done(on: DispatchQueue.main) { news in
+                self.news = news
+                self.tableView.reloadData()
+            }.catch { error in
+                print(error)
+            }
+
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        news.count
+
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsGroups.count
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "newsGroups", for: indexPath) as? NewsWeekTableViewCell {
-            let item = newsGroups[indexPath.row]
-
-            cell.imageAvatarGroup.image = UIImage(named: item.imageAvatar)
-            cell.nameGroup.text = item.nameGroups
-            cell.createNews.text = item.creatNews
-            cell.textNews.text = item.textNews
-            cell.fotoNews.image = UIImage(named: item.fotoNews)
-
+        
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? NewsPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
+            
             return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionText") as? TextPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            
+            cell.textPost.text = item.text
+            
+            return cell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionPhoto") as? PhotoPostTableViewCell else { return UITableViewCell() }
+            guard let urlImage = news[indexPath.section].photosURL?.first else { return UITableViewCell() }
+            let image = imageService?.photo(atIndexPath: indexPath, byUrl: urlImage)
+            cell.configureOne(image)
+            
+            return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionFooter") as? FooterPostTableViewCell else { return UITableViewCell() }
+            let item = news[indexPath.section]
+            cell.configure(with: item)
+            
+            return cell
+        default:
+            return UITableViewCell()
         }
-
-        return UITableViewCell()
     }
 }
+

@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FotoCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetWorkServiceGet.getAllPhotos(userId: Session.instance.userId) { json in
-            print("GetAllPhotos \(json)")
-        }
     }
-    
+
+    //MARK: - Отображение на экране
+
     var friendsIndex: Int = 0
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

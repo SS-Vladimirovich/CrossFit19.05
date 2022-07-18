@@ -37,5 +37,20 @@ struct NewsGroup {
     var creatNews: String
     var textNews: String
     var fotoNews: String
+    var likeCount: String
+
+}
+
+struct PostNews {
+
+    var imagePost: String
+    var namePost: String
+    var createPost: String
+    var textPost: String
+    var fotoPost: String
+    var likeCountPost: Int
+    var comentsCountPost: Int
+    var forwardCountPost: Int
+    var viewCountPost: Int
 
 }

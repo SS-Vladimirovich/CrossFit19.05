@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AllGroupsTableViewController: UITableViewController {
 
+    private var realmNotificationGroup: NotificationToken?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NetWorkServiceGet.getAllgroup(userId: Session.instance.userId) { json in
-            print("AllGroup \(json)")
-        }
+
     }
 
     var allGroups: [GroupsName] = [
