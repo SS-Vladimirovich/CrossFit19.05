@@ -100,9 +100,9 @@ class NetworkingService {
         }
         task.resume()
     }
-
+    
     func getNewsResult(completion: @escaping (Swift.Result<[NewsModel], AppError>) -> Void) {
-
+        
         // 1. Создаем URL для запроса
         urlConstructor.path = "/method/newsfeed.get"
         urlConstructor.queryItems = [
@@ -112,10 +112,10 @@ class NetworkingService {
             URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
-
+        
         // 2. Создаем запрос
         let task = session.dataTask(with: urlConstructor.url!) {  (data, response, error) in
-
+            
             // 3. Ловим ошибку
             if error != nil {
                 completion(.failure(AppError.errorTask))
@@ -140,31 +140,30 @@ class NetworkingService {
                 print("Error groups")
                 return
             }
-
+            
             // 6 Объединяю массивы
-            for i in 0..<news.count {
-                if news[i].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[i].sourceID })
-                    news[i].avatarURL = group?.avatarURL
-                    news[i].creatorName = group?.name
+            for index in 0..<news.count {
+                if news[index].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[index].sourceID })
+                    news[index].avatarURL = group?.avatarURL
+                    news[index].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
-                    news[i].avatarURL = profile?.avatarURL
-                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
+                    news[index].avatarURL = profile?.avatarURL
+                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
-
+            
             DispatchQueue.main.async {
                 completion(.success(news))
             }
         }
         task.resume()
     }
-
+    
     // 1. Создаем URL для запроса
     func getUrl() -> Promise<URL> {
         urlConstructor.path = "/method/newsfeed.get"
-
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
@@ -172,7 +171,7 @@ class NetworkingService {
             URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
-
+        
         return Promise  { resolver in
             guard let url = urlConstructor.url else {
                 resolver.reject(AppError.notCorrectUrl)
@@ -181,7 +180,7 @@ class NetworkingService {
             resolver.fulfill(url)
         }
     }
-
+    
     // 2. Создаем запрос получили данные
     func getData(_ url: URL) -> Promise<Data> {
         return Promise { resolver in
@@ -194,7 +193,7 @@ class NetworkingService {
             }.resume()
         }
     }
-
+    
     // Парсим Данные
     func getParsedData(_ data: Data) -> Promise<ItemsNews> {
         return Promise  { resolver in
@@ -206,22 +205,22 @@ class NetworkingService {
             }
         }
     }
-
+    
     func getNews(_ items: ItemsNews) -> Promise<[NewsModel]> {
         return Promise<[NewsModel]> { resolver in
             var news = items.items
             let groups = items.groups
             let profiles = items.profiles
-
-            for i in 0..<news.count {
-                if news[i].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[i].sourceID })
-                    news[i].avatarURL = group?.avatarURL
-                    news[i].creatorName = group?.name
+            
+            for index in 0..<news.count {
+                if news[index].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[index].sourceID })
+                    news[index].avatarURL = group?.avatarURL
+                    news[index].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
-                    news[i].avatarURL = profile?.avatarURL
-                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
+                    news[index].avatarURL = profile?.avatarURL
+                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
             resolver.fulfill(news)
