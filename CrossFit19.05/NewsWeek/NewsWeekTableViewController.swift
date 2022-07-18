@@ -28,7 +28,7 @@ class NewsWeekTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "TextPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionText")
 
         //register Foto
-        tableView.register(UINib(nibName: "FotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionFoto")
+        tableView.register(UINib(nibName: "PhotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionPhoto")
 
         //get
         service.getUrl()
