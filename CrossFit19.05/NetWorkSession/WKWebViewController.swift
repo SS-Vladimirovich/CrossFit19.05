@@ -9,12 +9,12 @@ import UIKit
 import WebKit
 
 class WKWebViewController: UIViewController, UIViewControllerTransitioningDelegate {
-
+    
     @IBOutlet weak var webView: WKWebView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view = webView
         webView.navigationDelegate = self
         if let request = NetworkingService().getAuthorizeRequest() {
@@ -22,17 +22,18 @@ class WKWebViewController: UIViewController, UIViewControllerTransitioningDelega
         }
     }
 }
+
 extension WKWebViewController: WKNavigationDelegate {
-
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-
+        
         guard let url = navigationResponse.response.url,
-            url.path == "/blank.html",
-            let fragment = url.fragment else {
-                decisionHandler(.allow)
-                return
+              url.path == "/blank.html",
+              let fragment = url.fragment else {
+            decisionHandler(.allow)
+            return
         }
-
+        
         let params = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=") }
@@ -42,14 +43,13 @@ extension WKWebViewController: WKNavigationDelegate {
                 let value = param[1]
                 dict[key] = value
                 return dict
-
-        }
-
+            }
+        
         let token = params["access_token"]
         let userID = params["user_id"]
         SessionApp.shared.userId = Int(userID ?? "")!
         SessionApp.shared.token = token!
-
+        
         performSegue(
             withIdentifier: "loginViewIndenti",
             sender: nil)

@@ -8,9 +8,8 @@
 import UIKit
 
 class NewsWeekTableViewCell: UITableViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 }

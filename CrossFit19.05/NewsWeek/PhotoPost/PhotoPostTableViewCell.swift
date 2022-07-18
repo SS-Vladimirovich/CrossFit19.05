@@ -18,16 +18,12 @@ class PhotoPostTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         imagePhotoPost.image = nil
     }
-
+    
     func configureOne(_ url: String) {
         imagePhotoPost.loadImage(url)
     }

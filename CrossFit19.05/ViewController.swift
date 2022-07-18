@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     //MARK: - Отображение на экране
@@ -23,8 +22,7 @@ class ViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
     }
 
-
-
+    //keyboardWasShown
     @objc func keyboardWasShown(notification: Notification) {
 
         let info = notification.userInfo! as NSDictionary
@@ -43,12 +41,14 @@ class ViewController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @objc func hideKeyboard() { self.scrollView?.endEditing(true) }
 }
 

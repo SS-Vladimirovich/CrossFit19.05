@@ -9,19 +9,19 @@ import Foundation
 import PromiseKit
 
 class NetworkingService {
-
+    
     private var urlConstructor = URLComponents()
     private let constants = NetworkConstants()
     private let configuration: URLSessionConfiguration!
     private let session: URLSession!
-
+    
     init() {
         urlConstructor.scheme = "https"
         urlConstructor.host = "api.vk.com"
         configuration = URLSessionConfiguration.default
         session = URLSession(configuration: configuration)
     }
-
+    
     func  getAuthorizeRequest() -> URLRequest? {
         urlConstructor.host = "oauth.vk.com"
         urlConstructor.path = "/authorize"
@@ -33,19 +33,18 @@ class NetworkingService {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: constants.versionAPI)
         ]
-
+        
         guard let url = urlConstructor.url else { return nil }
         let request = URLRequest(url: url)
         return request
     }
-
+    
     //MARK: - News feed
     // Result use
     func getNews(completion: @escaping ([NewsModel]) -> Void, onError: @escaping (Error) -> Void) {
-
+        
         // 1. Создаем URL для запроса
         urlConstructor.path = "/method/newsfeed.get"
-
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),
@@ -53,10 +52,10 @@ class NetworkingService {
             URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
-
+        
         // 2. Создаем запрос
         let task = session.dataTask(with: urlConstructor.url!) {  (data, response, error) in
-
+            
             // 3. Ловим ошибку
             if error != nil {
                 onError(AppError.errorTask)
@@ -81,20 +80,20 @@ class NetworkingService {
                 print("Error groups")
                 return
             }
-
+            
             // 6 Объединяю массивы
-            for i in 0..<news.count {
-                if news[i].sourceID < 0 {
-                    let group = groups.first(where: { $0.id == -news[i].sourceID })
-                    news[i].avatarURL = group?.avatarURL
-                    news[i].creatorName = group?.name
+            for index in 0..<news.count {
+                if news[index].sourceID < 0 {
+                    let group = groups.first(where: { $0.id == -news[index].sourceID })
+                    news[index].avatarURL = group?.avatarURL
+                    news[index].creatorName = group?.name
                 } else {
-                    let profile = profiles.first(where: { $0.id == news[i].sourceID })
-                    news[i].avatarURL = profile?.avatarURL
-                    news[i].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
+                    let profile = profiles.first(where: { $0.id == news[index].sourceID })
+                    news[index].avatarURL = profile?.avatarURL
+                    news[index].creatorName = (profile?.firstName ?? "") + (profile?.lastName ?? "")
                 }
             }
-
+            
             DispatchQueue.main.async {
                 completion(news)
             }
@@ -106,7 +105,6 @@ class NetworkingService {
 
         // 1. Создаем URL для запроса
         urlConstructor.path = "/method/newsfeed.get"
-
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_from", value: "next_from"),

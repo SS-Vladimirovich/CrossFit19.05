@@ -34,12 +34,11 @@ struct NewsModel: Codable {
         case avatarURL
         case creatorName
     }
-
+    
     func getStringDate() -> String {
         let dateFormatter = DateFormatterVK()
         return dateFormatter.convertDate(timeIntervalSince1970: date)
     }
-
 }
 
 struct Attachment: Codable {

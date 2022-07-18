@@ -8,7 +8,7 @@
 import UIKit
 
 class FooterPostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var likeCount: UILabel!
     @IBOutlet weak var comentsCount: UILabel!
     @IBOutlet weak var arrowCount: UILabel!

@@ -8,7 +8,10 @@
 import UIKit
 
 class TextPostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var textPost: UITextView!
     
+    func configure(with newsModel: NewsModel) {
+        textPost.text = newsModel.text
+    }
 }
