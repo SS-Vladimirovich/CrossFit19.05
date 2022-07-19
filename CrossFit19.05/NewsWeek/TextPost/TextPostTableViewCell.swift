@@ -9,7 +9,7 @@ import UIKit
 
 class TextPostTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var textPost: UITextView!
+    @IBOutlet weak var textPost: UILabel!
     
     func configure(with newsModel: NewsModel) {
         textPost.text = newsModel.text
