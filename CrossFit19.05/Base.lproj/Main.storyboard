@@ -656,6 +656,7 @@ Premium Class</string>
                         <connections>
                             <outlet property="dataSource" destination="a3Q-4z-tDS" id="r31-nc-cdR"/>
                             <outlet property="delegate" destination="a3Q-4z-tDS" id="sUd-UX-Fxu"/>
+                            <outlet property="prefetchDataSource" destination="a3Q-4z-tDS" id="bUB-gM-8AW"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News Week" id="X5S-G5-uR4"/>

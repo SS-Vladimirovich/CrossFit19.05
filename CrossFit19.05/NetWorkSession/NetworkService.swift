@@ -162,12 +162,31 @@ class NetworkingService {
     }
     
     // 1. Создаем URL для запроса
-    func getUrl() -> Promise<URL> {
+    func getUrl(_ nextForm: String) -> Promise<URL> {
         urlConstructor.path = "/method/newsfeed.get"
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
-            URLQueryItem(name: "start_from", value: "next_from"),
+            URLQueryItem(name: "start_from", value: nextForm),
             URLQueryItem(name: "count", value: "20"),
+            URLQueryItem(name: "access_token", value: SessionApp.shared.token),
+            URLQueryItem(name: "v", value: constants.versionAPI),
+        ]
+        
+        return Promise  { resolver in
+            guard let url = urlConstructor.url else {
+                resolver.reject(AppError.notCorrectUrl)
+                return
+            }
+            resolver.fulfill(url)
+        }
+    }
+    
+    func getUrlWithTime(_ timeInterval1970: String) -> Promise<URL> {
+        urlConstructor.path = "/method/newsfeed.get"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "filters", value: "post"),
+            URLQueryItem(name: "start_time", value: timeInterval1970),
+            URLQueryItem(name: "count", value: "2"),
             URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]

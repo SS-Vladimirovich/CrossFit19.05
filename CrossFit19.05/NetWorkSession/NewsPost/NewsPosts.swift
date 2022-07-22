@@ -69,6 +69,10 @@ struct PhotoNews: Codable {
 struct SizeNews: Codable {
     let type: String?
     let url: String?
+    let width: Int?
+    let height: Int?
+    
+    var aspectRatio: CGFloat { return CGFloat(height ?? 1)/CGFloat(width ?? 1) }
 }
 
 class DateFormatterVK {

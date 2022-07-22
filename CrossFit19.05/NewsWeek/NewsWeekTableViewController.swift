@@ -13,10 +13,14 @@ class NewsWeekTableViewController: UITableViewController {
     private var news: [NewsModel] = []
     private let service = NetworkingService()
     private var imageService: PhotoService?
+    var lastDate: String?
+    var nextFrom = ""
+    var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageService = PhotoService(container: tableView)
+        setupRefreshControl()
         
         //register Xib
         tableView.register(UINib(nibName: "NewsPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionHeader")
@@ -25,20 +29,56 @@ class NewsWeekTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "PhotoPostTableViewCell", bundle: nil), forCellReuseIdentifier: "sectionPhoto")
         
         //service.getUrl
-        service.getUrl()
+        service.getUrl(self.nextFrom)
             .get({ url in
                 print(url)
             })
             .then(on: DispatchQueue.global(), service.getData(_:))
             .then(service.getParsedData(_:))
+            .get ({ response in
+                self.nextFrom = response.nextFrom ?? ""
+            })
             .then(service.getNews(_:))
             .done(on: DispatchQueue.main) { news in
                 self.news = news
+                self.lastDate = String(news.first?.date ?? 0)
                 self.tableView.reloadData()
             }.catch { error in
                 print(error)
             }
     }
+    
+    fileprivate func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Обновление.....")
+        tableView.refreshControl?.tintColor = .blue
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+    }
+    
+    @objc func refreshNews() {
+        guard let date = lastDate else {
+            tableView.refreshControl?.endRefreshing()
+            return
+        }
+        service.getUrlWithTime(date)
+            .get({url in
+                print(url)
+            })
+            .then(on: DispatchQueue.global(), service.getData(_:))
+            .then(on: DispatchQueue.global(), service.getParsedData(_:))
+            .then(on: DispatchQueue.global(), service.getNews(_:))
+            .done(on: DispatchQueue.main) { [weak self] news in
+                guard let self = self else { return }
+                print(news.count)
+                self.news += news
+                self.lastDate = String(news.first?.date ?? 0)
+                self.tableView.reloadData()
+            }.ensure { [weak self] in
+                self?.tableView.refreshControl?.endRefreshing()
+            }.catch { error in
+                print(error)
+            }
+}
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         news.count
@@ -82,3 +122,36 @@ class NewsWeekTableViewController: UITableViewController {
     }
 }
 
+extension NewsWeekTableViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map({ $0.section }).max() else { return }
+        
+        if maxSection > news.count - 3,
+           !isLoading {
+            
+            isLoading = true
+            
+            service.getUrl(self.nextFrom)
+                .get({url in
+                    print(url)
+                })
+                .then(on: DispatchQueue.global(), service.getData(_:))
+                .then(on: DispatchQueue.global(), service.getParsedData(_:))
+                .get ({ response in
+                    self.nextFrom = response.nextFrom ?? ""
+                })
+                .then(on: DispatchQueue.global(), service.getNews(_:))
+                .done(on: DispatchQueue.main) { [weak self] news in
+                    guard let self = self else { return }
+                    let indexSet = IndexSet(integersIn: self.news.count..<self.news.count + news.count)
+                    self.news.append(contentsOf: news)
+                    self.tableView.insertSections(indexSet, with: .automatic)
+                }.ensure { [weak self] in
+                    self?.isLoading = false
+                }.catch { error in
+                    print(error)
+                }
+        }
+    }
+}
