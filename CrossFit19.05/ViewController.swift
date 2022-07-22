@@ -6,16 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NetWorkServiceGet.getUsers(userId: Session.instance.userId) { json in
-            print("GetUsers \(json)")
-        }
     }
+
+    //MARK: - Отображение на экране
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginInput: UITextField!
@@ -23,8 +22,7 @@ class ViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
     }
 
-
-
+    //keyboardWasShown
     @objc func keyboardWasShown(notification: Notification) {
 
         let info = notification.userInfo! as NSDictionary
@@ -34,20 +32,24 @@ class ViewController: UIViewController {
         self.scrollView?.contentInset = contentInsets
         scrollView?.scrollIndicatorInsets = contentInsets }
 
-    @objc func keyboardWillBeHidden(notification: Notification) {
-    }
-    override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated)
+    @objc func keyboardWillBeHidden(notification: Notification) { }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    override func viewWillDisappear(_ animated: Bool) { super.viewWillDisappear(animated)
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    @objc func hideKeyboard() { self.scrollView?.endEditing(true)
-    }
+    
+    @objc func hideKeyboard() { self.scrollView?.endEditing(true) }
 }
 
 
