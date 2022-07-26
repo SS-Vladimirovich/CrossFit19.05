@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseMessaging
 
-struct Session {
+//MARK: - Session
 
-    static var instance = Session()
-
-    private init(){}
-
+struct SessionApp {
+    
+    static var shared = SessionApp()
+    
+    private init() {}
+    
     var token = ""
     var userId = 0
 }

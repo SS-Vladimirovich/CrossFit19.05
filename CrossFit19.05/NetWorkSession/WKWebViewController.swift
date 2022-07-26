@@ -9,110 +9,50 @@ import UIKit
 import WebKit
 
 class WKWebViewController: UIViewController, UIViewControllerTransitioningDelegate {
-
+    
     @IBOutlet weak var webView: WKWebView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view = webView
         webView.navigationDelegate = self
-
-        var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: "8168219"),
-            URLQueryItem(name: "display", value: "mobile"),
-            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
-            URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.68")
-        ]
-
-        guard let url = urlComponents?.url else { return }
-        let request = URLRequest(url: url)
-
-        webView.load(request)
+        if let request = NetworkingService().getAuthorizeRequest() {
+            webView.load(request)
+        }
     }
 }
 
 extension WKWebViewController: WKNavigationDelegate {
-
-    func webView(
-        _ webView: WKWebView,
-        decidePolicyFor navigationResponse: WKNavigationResponse,
-        decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
-    ) {
-
-
-        guard
-            let url = navigationResponse.response.url,
-            url.path == "/blank.html",
-            let fragment = url.fragment
-        else { return decisionHandler(.allow) }
-
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        
+        guard let url = navigationResponse.response.url,
+              url.path == "/blank.html",
+              let fragment = url.fragment else {
+            decisionHandler(.allow)
+            return
+        }
+        
         let params = fragment
             .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=") }
-            .reduce([String : String](), { partialResult, param in
-                var dict = partialResult
+            .reduce ([String:String]()) { result, param in
+                var dict = result
                 let key = param[0]
                 let value = param[1]
                 dict[key] = value
                 return dict
-            })
-
-        guard
-            let token = params["access_token"],
-            let userId = Int(params["user_id"] ?? "")
-        else { return decisionHandler(.allow) }
-
-
-        Session.instance.token = token
-        Session.instance.userId = userId
+            }
+        
+        let token = params["access_token"]
+        let userID = params["user_id"]
+        SessionApp.shared.userId = Int(userID ?? "")!
+        SessionApp.shared.token = token!
         
         performSegue(
             withIdentifier: "loginViewIndenti",
             sender: nil)
-
         decisionHandler(.cancel)
-    }
-}
-
-//MARK: - NetworkService
-
-class NetworkService {
-
-    private init() {}
-
-    static let shared = NetworkService()
-
-    func sendGetRequest(url: URL, completion: @escaping(Data) -> ()) {
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
-            completion(data)
-        }.resume()
-    }
-}
-
-//MARK: - Response
-
-struct ArrayResponse<T: Decodable>: Decodable {
-
-    enum CodingKeys: CodingKey {
-
-        case response
-
-        enum ResponseKeys: CodingKey {
-            case items
-        }
-    }
-
-    let response: [T]
-
-    init(from decoder: Decoder) throws {
-
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let groupsContainer = try container.nestedContainer(keyedBy: CodingKeys.ResponseKeys.self, forKey: .response)
-        response = try groupsContainer.decode([T].self, forKey: .items)
     }
 }
