@@ -36,7 +36,7 @@ class NewsWeekTableViewController: UITableViewController {
             .then(on: DispatchQueue.global(), service.getData(_:))
             .then(service.getParsedData(_:))
             .get ({ response in
-                self.nextFrom = response.nextFrom ?? ""
+                self.nextFrom = response.nextFrom
             })
             .then(service.getNews(_:))
             .done(on: DispatchQueue.main) { news in
@@ -78,7 +78,7 @@ class NewsWeekTableViewController: UITableViewController {
             }.catch { error in
                 print(error)
             }
-}
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         news.count
@@ -120,6 +120,27 @@ class NewsWeekTableViewController: UITableViewController {
             return UITableViewCell()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.row {
+        case 0:
+            return UITableView.automaticDimension
+        case 1:
+            return UITableView.automaticDimension
+        case 2:
+            guard let urls = news[indexPath.section].photosURL,
+                  !urls.isEmpty else { return 0 }
+            
+            let widht = view.frame.width
+            let post = news[indexPath.section]
+            return widht
+        case 3:
+            return UITableView.automaticDimension
+        default:
+            return 0
+        }
+    }
 }
 
 extension NewsWeekTableViewController: UITableViewDataSourcePrefetching {
@@ -139,7 +160,7 @@ extension NewsWeekTableViewController: UITableViewDataSourcePrefetching {
                 .then(on: DispatchQueue.global(), service.getData(_:))
                 .then(on: DispatchQueue.global(), service.getParsedData(_:))
                 .get ({ response in
-                    self.nextFrom = response.nextFrom ?? ""
+                    self.nextFrom = response.nextFrom
                 })
                 .then(on: DispatchQueue.global(), service.getNews(_:))
                 .done(on: DispatchQueue.main) { [weak self] news in

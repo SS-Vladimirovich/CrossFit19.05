@@ -186,7 +186,7 @@ class NetworkingService {
         urlConstructor.queryItems = [
             URLQueryItem(name: "filters", value: "post"),
             URLQueryItem(name: "start_time", value: timeInterval1970),
-            URLQueryItem(name: "count", value: "2"),
+            URLQueryItem(name: "count", value: "20"),
             URLQueryItem(name: "access_token", value: SessionApp.shared.token),
             URLQueryItem(name: "v", value: constants.versionAPI),
         ]
